@@ -790,10 +790,15 @@
         .social-card.instagram { border-bottom: 4px solid #e4405f; }
         .social-card.tiktok { border-bottom: 4px solid #000000; }
 
-        .social-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+.social-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.social-card.youtube .icon { color: #ff0000; }
+.social-card.facebook .icon { color: #1877f2; }
+.social-card.instagram .icon { color: #e4405f; }
+.social-card.tiktok .icon { color: #000000; }
 
         .social-card .name {
             font-weight: 600;
@@ -1006,6 +1011,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -1373,33 +1379,33 @@
 
             <h3 style="color: #2d5a27; margin-bottom: 25px;">Follow Our Work</h3>
 
-            <div class="social-grid">
-                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="social-card youtube">
-                    <div class="icon">▶️</div>
-                    <div class="name">YouTube</div>
-                    <div class="handle">Full Videos</div>
-                </a>
-                <a href="https://youtube.com/@fabgardensf" target="_blank" class="social-card youtube">
-                    <div class="icon">⏩</div>
-                    <div class="name">YouTube F&F</div>
-                    <div class="handle">Fast Videos</div>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" class="social-card facebook">
-                    <div class="icon">📘</div>
-                    <div class="name">Facebook</div>
-                    <div class="handle">@fabgardens</div>
-                </a>
-                <a href="https://www.instagram.com/fab_gardens" target="_blank" class="social-card instagram">
-                    <div class="icon">📸</div>
-                    <div class="name">Instagram</div>
-                    <div class="handle">@fab_gardens</div>
-                </a>
-                <a href="https://www.tiktok.com/@fab.gardens" target="_blank" class="social-card tiktok">
-                    <div class="icon">🎵</div>
-                    <div class="name">TikTok</div>
-                    <div class="handle">@fab.gardens</div>
-                </a>
-            </div>
+<div class="social-grid">
+    <a href="https://www.youtube.com/@fabgardens" target="_blank" class="social-card youtube">
+        <div class="icon"><i class="fab fa-youtube"></i></div>
+        <div class="name">YouTube</div>
+        <div class="handle">Full Videos</div>
+    </a>
+    <a href="https://youtube.com/@fabgardensf" target="_blank" class="social-card youtube">
+        <div class="icon"><i class="fab fa-youtube"></i></div>
+        <div class="name">YouTube F&F</div>
+        <div class="handle">Fast Videos</div>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" class="social-card facebook">
+        <div class="icon"><i class="fab fa-facebook-f"></i></div>
+        <div class="name">Facebook</div>
+        <div class="handle">@fabgardens</div>
+    </a>
+    <a href="https://www.instagram.com/fab_gardens" target="_blank" class="social-card instagram">
+        <div class="icon"><i class="fab fa-instagram"></i></div>
+        <div class="name">Instagram</div>
+        <div class="handle">@fab_gardens</div>
+    </a>
+    <a href="https://www.tiktok.com/@fab.gardens" target="_blank" class="social-card tiktok">
+        <div class="icon"><i class="fab fa-tiktok"></i></div>
+        <div class="name">TikTok</div>
+        <div class="handle">@fab.gardens</div>
+    </a>
+</div>
         </div>
     </section>
 
@@ -1412,13 +1418,13 @@
             <p class="footer-tagline">Restoring safety where neglect took over.</p>
             <p class="footer-kindness">Remember, kindness is contagious. 💛</p>
             
-            <div class="footer-social">
-                <a href="https://www.youtube.com/@fabgardens" target="_blank" title="YouTube">▶</a>
-                <a href="https://youtube.com/@fabgardensf" target="_blank" title="YouTube F&F">⏩</a>
-                <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" title="Facebook">f</a>
-                <a href="https://www.instagram.com/fab_gardens" target="_blank" title="Instagram">📷</a>
-                <a href="https://www.tiktok.com/@fab.gardens" target="_blank" title="TikTok">♪</a>
-            </div>
+<div class="footer-social">
+    <a href="https://www.youtube.com/@fabgardens" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://youtube.com/@fabgardensf" target="_blank" title="YouTube F&F"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/fab_gardens" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@fab.gardens" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
 
             <div class="footer-bottom">
                 <p>© 2024 Fab Gardens Community Project. All rights reserved.</p>
@@ -1476,6 +1482,7 @@
 
 </body>
 </html>
+
 
 
 
