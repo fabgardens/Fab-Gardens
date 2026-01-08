@@ -790,7 +790,93 @@
             margin: 0;
             font-size: 0.95rem;
         }
+/* Form Benefits */
+.form-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
 
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+.benefit-item i {
+    font-size: 1.5rem;
+    color: var(--sunflower-orange);
+}
+
+/* Google Form Button */
+.google-form-button {
+    display: block;
+    background: linear-gradient(135deg, var(--sunflower-yellow), var(--sunflower-orange));
+    color: var(--dark-text);
+    text-decoration: none;
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    margin: 30px 0;
+}
+
+.google-form-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.google-form-button i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.button-main-text {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.button-sub-text {
+    display: block;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.form-note {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.form-note i {
+    margin-right: 5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .form-benefits {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .google-form-button {
+        padding: 25px 20px;
+    }
+    
+    .button-main-text {
+        font-size: 1.3rem;
+    }
+}
         .form-group {
             margin-bottom: 25px;
         }
@@ -1577,54 +1663,56 @@
         </div>
     </section>
 
-    <!-- NOMINATION FORM SECTION - IMPROVED -->
-    <section class="nominate" id="nominate">
-        <h2 class="section-title">Nominate an Area for Safer Walking</h2>
-        <p class="section-subtitle">Know a dangerous or neglected public space in Surrey? Tell us about it!</p>
+   <!-- NOMINATION SECTION - GOOGLE FORM -->
+<section class="nominate" id="nominate">
+    <h2 class="section-title">Nominate an Area for Safer Walking</h2>
+    <p class="section-subtitle">Know a dangerous or neglected public space in Surrey? Tell us about it!</p>
+    
+    <div class="form-container">
         
-        <div class="form-container">
-            
-            <!-- NEW: Scope Notice at Top -->
-            <div class="scope-notice">
-                <h4><i class="fas fa-map-marker-alt"></i> Service Area</h4>
-                <p>We cover all of Surrey County within <strong>20 miles of KT21 1AA</strong><br>Including Ashtead, Leatherhead, Epsom & surrounding areas</p>
+        <!-- Scope Notice -->
+        <div class="scope-notice">
+            <h4><i class="fas fa-map-marker-alt"></i> Service Area</h4>
+            <p>We cover all of Surrey County within <strong>20 miles of KT21 1AA</strong><br>Including Ashtead, Leatherhead, Epsom & surrounding areas</p>
+        </div>
+
+        <div class="form-intro">
+            <h3>🌻 Nomination Form</h3>
+            <p>Submit your nomination using our easy form. You can upload photos directly from your phone!</p>
+        </div>
+
+        <!-- Outcome Promise -->
+        <div class="outcome-promise">
+            <p><i class="fas fa-info-circle"></i> <strong>What happens next?</strong> After you nominate, we review the area, plan the clean-up, and document the process on video so the community learns why it mattered.</p>
+        </div>
+
+        <!-- Benefits of the form -->
+        <div class="form-benefits">
+            <div class="benefit-item">
+                <i class="fas fa-camera"></i>
+                <span>Upload photos directly from your phone</span>
             </div>
-
-            <div class="form-intro">
-                <h3>🌻 Nomination Form</h3>
-                <p>Please provide as much detail as possible to help us understand the area and what hazards exist.</p>
+            <div class="benefit-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Works perfectly on mobile</span>
             </div>
-
-            <!-- NEW: Outcome Promise -->
-            <div class="outcome-promise">
-                <p><i class="fas fa-info-circle"></i> <strong>What happens next?</strong> After you nominate, we review the area, plan the clean-up, and document the process on video so the community learns why it mattered.</p>
+            <div class="benefit-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Takes only 2 minutes</span>
             </div>
+        </div>
 
-            <!-- FORM -->
-           <form action="https://formspree.io/f/xqearnwz" method="POST" enctype="multipart/form-data">
-                
-                <div class="form-group">
-                    <label for="name">Your Name <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
+        <!-- Big Button to Google Form -->
+        <a href="https://forms.gle/xfQ7kivtpU8y74kU6" target="_blank" class="google-form-button">
+            <i class="fas fa-clipboard-list"></i>
+            <span class="button-main-text">Open Nomination Form</span>
+            <span class="button-sub-text">Tap to nominate an area (opens in new tab)</span>
+        </a>
 
-                <div class="form-group">
-                    <label for="email">Your Email <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                    <small>We'll only use this to update you about the nomination status.</small>
-                </div>
+        <p class="form-note"><i class="fas fa-lock"></i> Your information is secure and only used to process your nomination.</p>
 
-                <div class="form-group">
-                    <label for="area_type">Type of Area <span class="required">*</span></label>
-                    <select id="area_type" name="area_type" required>
-                        <option value="">-- Select the type of area --</option>
-                        <option value="Footpath">Footpath</option>
-                        <option value="Blocked Pavement">Blocked Pavement</option>
-                        <option value="Road Sign Visibility">Road Sign Visibility</option>
-                        <option value="Footpath Bridge">Footpath Bridge</option>
-                        <option value="Other Public Area">Other Public Area (with clear safety issue)</option>
-                    </select>
-                </div>
+    </div>
+</section>
 
                 <div class="form-group">
                     <label for="location">Location/Address <span class="required">*</span></label>
@@ -1823,6 +1911,7 @@ document.getElementById('photos').addEventListener('change', function() {
 
 </body>
 </html>
+
 
 
 
