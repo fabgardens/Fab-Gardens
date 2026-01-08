@@ -45,7 +45,7 @@
             left: 0;
             right: 0;
             background: var(--primary-green);
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,15 +56,16 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: var(--white);
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
         }
 
-        .logo-icon {
-            font-size: 2.2rem;
+        .logo-image {
+            height: 50px;
+            width: auto;
         }
 
         .nav-links {
@@ -96,10 +97,13 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section with Background Image */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            background-image: linear-gradient(rgba(45, 90, 39, 0.7), rgba(45, 90, 39, 0.8)), url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -114,22 +118,23 @@
             max-width: 900px;
         }
 
-        .hero-icon {
-            font-size: 6rem;
+        .hero-logo {
+            width: 150px;
+            height: auto;
             margin-bottom: 20px;
             animation: sway 3s ease-in-out infinite;
         }
 
         @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
         }
 
         .hero h1 {
             font-size: 3rem;
             color: var(--white);
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-tagline {
@@ -137,6 +142,7 @@
             color: var(--sunflower-yellow);
             margin-bottom: 15px;
             font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .hero p {
@@ -146,6 +152,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         .hero-kindness {
@@ -153,6 +160,7 @@
             color: var(--sunflower-yellow);
             font-style: italic;
             margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .hero-buttons {
@@ -247,9 +255,12 @@
             margin: 0 auto 50px;
         }
 
-        /* About Section */
+        /* About Section with Background Image */
         .about {
-            background: var(--white);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .about-container {
@@ -297,9 +308,10 @@
             align-items: center;
             gap: 10px;
             padding: 12px 15px;
-            background: var(--cream);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             font-size: 0.95rem;
+            box-shadow: var(--shadow);
         }
 
         .feature-icon {
@@ -313,10 +325,12 @@
             text-align: center;
             color: var(--dark-text);
             position: relative;
+            box-shadow: var(--shadow-hover);
         }
 
-        .about-image .big-icon {
-            font-size: 10rem;
+        .about-image .big-logo {
+            width: 180px;
+            height: auto;
             margin-bottom: 20px;
         }
 
@@ -330,7 +344,7 @@
         }
 
         .coverage-area {
-            background: var(--cream);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             padding: 25px;
             margin-top: 30px;
@@ -804,14 +818,16 @@
             margin: 0 auto;
         }
 
-        .footer-logo {
-            font-size: 2rem;
+        .footer-logo-img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 15px;
+        }
+
+        .footer-name {
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            margin-bottom: 5px;
         }
 
         .footer-founder {
@@ -919,6 +935,18 @@
                 display: block;
             }
 
+            .logo-image {
+                height: 40px;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .hero-logo {
+                width: 100px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -936,6 +964,10 @@
                 align-items: center;
             }
 
+            .about {
+                background-attachment: scroll;
+            }
+
             .about-container {
                 grid-template-columns: 1fr;
             }
@@ -944,8 +976,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-image .big-icon {
-                font-size: 6rem;
+            .about-image .big-logo {
+                width: 120px;
             }
 
             .form-container {
@@ -968,15 +1000,19 @@
                 padding: 15px 25px;
                 font-size: 1rem;
             }
+
+            .footer-logo-img {
+                height: 60px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION WITH YOUR LOGO -->
     <nav class="navbar">
         <a href="#" class="logo">
-            <span class="logo-icon">🌻</span>
+            <img src="images/logo.png" alt="Fab Gardens Logo" class="logo-image">
             <span>Fab Gardens</span>
         </a>
         <ul class="nav-links" id="navLinks">
@@ -990,10 +1026,10 @@
         <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH YOUR BACKGROUND IMAGE -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-icon">🌻</div>
+            <img src="images/logo.png" alt="Fab Gardens" class="hero-logo">
             <h1>Fab Gardens</h1>
             <p class="hero-tagline">Restoring safety where neglect took over.</p>
             <p>We clear dangerous, neglected public paths so people can walk safely again.</p>
@@ -1027,7 +1063,7 @@
         </div>
     </div>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION WITH YOUR BACKGROUND IMAGE -->
     <section class="about" id="about">
         <h2 class="section-title">About Fab Gardens</h2>
         <p class="section-subtitle">Practical, hands-on clean-ups that make a real difference.</p>
@@ -1062,7 +1098,7 @@
                 </div>
             </div>
             <div class="about-image">
-                <div class="big-icon">🌻</div>
+                <img src="images/logo.png" alt="Fab Gardens" class="big-logo">
                 <h3>Making Paths Safe Again</h3>
                 <p>Every nomination helps us identify dangerous areas. Together, we restore dignity to our public spaces.</p>
                 
@@ -1252,7 +1288,7 @@
             </div>
 
             <!-- FORM - Replace YOUR_FORM_ID with your actual Formspree ID -->
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form action="https://formspree.io/f/xqearnwz" method="POST">
                 
                 <div class="form-group">
                     <label for="name">Your Name <span class="required">*</span></label>
@@ -1367,12 +1403,11 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER WITH YOUR LOGO -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                🌻 Fab Gardens
-            </div>
+            <img src="images/logo.png" alt="Fab Gardens" class="footer-logo-img">
+            <p class="footer-name">Fab Gardens</p>
             <p class="footer-founder">Founded by Fabio Zacarias</p>
             <p class="footer-tagline">Restoring safety where neglect took over.</p>
             <p class="footer-kindness">Remember, kindness is contagious. 💛</p>
@@ -1441,6 +1476,7 @@
 
 </body>
 </html>
+
 
 
 
