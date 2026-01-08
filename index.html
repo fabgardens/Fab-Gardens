@@ -867,6 +867,78 @@
             color: var(--primary-green);
             font-weight: 600;
         }
+        /* Direct File Upload Styling */
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.file-upload-button {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border: 3px dashed #4a7c43;
+    border-radius: 15px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload-button:hover {
+    background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+    border-color: #2d5a27;
+}
+
+.file-upload-button i {
+    font-size: 3rem;
+    color: #2d5a27;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.file-upload-button span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d5a27;
+    margin-bottom: 5px;
+}
+
+.file-upload-button small {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.file-selected {
+    margin-top: 15px;
+    padding: 0;
+}
+
+.file-selected-item {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.file-selected-item i {
+    color: #28a745;
+}
 
         .checkbox-group {
             display: flex;
@@ -1529,7 +1601,7 @@
             </div>
 
             <!-- FORM -->
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+           <form action="https://formspree.io/f/xqearnwz" method="POST" enctype="multipart/form-data">
                 
                 <div class="form-group">
                     <label for="name">Your Name <span class="required">*</span></label>
@@ -1575,22 +1647,35 @@
                     <textarea id="additional_info" name="additional_info" placeholder="Any other details that might be helpful? Access issues, best time to visit, safety concerns, etc."></textarea>
                 </div>
 
-                <!-- PHOTO LINK INSTRUCTIONS -->
-                <div class="photo-instructions">
-                    <h4><i class="fas fa-camera"></i> How to Share Photos</h4>
-                    <p>Please upload your photo(s) to one of these free services and paste the link below:</p>
-                    <ol>
-                        <li><strong>Postimages</strong> (easiest - no account needed): Go to <a href="https://postimages.org" target="_blank">postimages.org</a>, click "Choose images", upload your photo, copy the "Direct link"</li>
-                        <li><strong>ImgBB</strong> (no account needed): Go to <a href="https://imgbb.com" target="_blank">imgbb.com</a>, click "Start uploading", upload photo, copy the link</li>
-                        <li><strong>Google Drive</strong>: Upload photo, right-click, click "Share", click "Copy link"</li>
-                    </ol>
-                </div>
+<!-- DIRECT PHOTO UPLOAD -->
+<div class="form-group">
+    <label for="photos"><i class="fas fa-camera"></i> Upload Photo(s) of the Area <span class="required">*</span></label>
+    <div class="file-upload-wrapper">
+        <input 
+            type="file" 
+            id="photos" 
+            name="photos" 
+            accept="image/*" 
+            multiple 
+            required
+            class="file-input"
+        >
+        <div class="file-upload-button">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>Tap to Choose Photos</span>
+            <small>or take a new photo with your camera</small>
+        </div>
+    </div>
+    <div class="file-selected" id="fileSelected"></div>
+    <small>You can select multiple photos. Maximum 10MB per photo. JPG, PNG, or HEIC accepted.</small>
+</div>
 
-                <div class="form-group">
-                    <label for="photo_link">Photo Link(s) <span class="required">*</span></label>
-                    <textarea id="photo_link" name="photo_link" required placeholder="Paste your photo link(s) here. If you have multiple photos, paste each link on a new line."></textarea>
-                    <small>We need at least one photo to assess the area and its hazards.</small>
-                </div>
+<!-- OPTIONAL: Keep link option as backup -->
+<div class="form-group">
+    <label for="photo_link">Or Paste Photo Link (optional)</label>
+    <input type="text" id="photo_link" name="photo_link" placeholder="If you prefer, paste a link to your photos here">
+    <small>Use this if you already have photos uploaded somewhere else.</small>
+</div>
 
                 <div class="form-group">
                     <div class="checkbox-group">
@@ -1679,6 +1764,22 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // File Upload Display
+document.getElementById('photos').addEventListener('change', function() {
+    var fileSelected = document.getElementById('fileSelected');
+    fileSelected.innerHTML = '';
+    
+    if (this.files.length > 0) {
+        for (var i = 0; i < this.files.length; i++) {
+            var fileName = this.files[i].name;
+            var fileSize = (this.files[i].size / 1024 / 1024).toFixed(2);
+            var fileItem = document.createElement('div');
+            fileItem.className = 'file-selected-item';
+            fileItem.innerHTML = '<i class="fas fa-check-circle"></i> ' + fileName + ' (' + fileSize + ' MB)';
+            fileSelected.appendChild(fileItem);
+        }
+    }
+});
         // Mobile Menu
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             var nav = document.getElementById('navLinks');
@@ -1722,6 +1823,7 @@
 
 </body>
 </html>
+
 
 
 
