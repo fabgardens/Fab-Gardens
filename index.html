@@ -6,7 +6,6 @@
     <title>Fab Gardens - Community Clean-Up Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ========== BASIC RESET & VARIABLES ========== */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +35,7 @@
             background-color: var(--cream);
         }
 
-        /* ========== NAVIGATION ========== */
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -93,7 +92,7 @@
             cursor: pointer;
         }
 
-        /* ========== HERO SECTION ========== */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
@@ -103,18 +102,6 @@
             text-align: center;
             padding: 120px 20px 60px;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100px 100px;
         }
 
         .hero-content {
@@ -192,7 +179,7 @@
             transform: translateY(-3px);
         }
 
-        /* ========== SECTIONS GENERAL ========== */
+        /* Sections */
         section {
             padding: 80px 5%;
         }
@@ -212,7 +199,7 @@
             margin: 0 auto 50px;
         }
 
-        /* ========== ABOUT SECTION ========== */
+        /* About Section */
         .about {
             background: var(--white);
         }
@@ -270,7 +257,7 @@
             margin-bottom: 20px;
         }
 
-        /* ========== IMPORTANT NOTICE ========== */
+        /* Notice Section */
         .notice {
             background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
             color: var(--white);
@@ -286,10 +273,6 @@
         .notice h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
         .notice p {
@@ -297,7 +280,7 @@
             opacity: 0.95;
         }
 
-        /* ========== WHAT WE CLEAN SECTION ========== */
+        /* Services Section */
         .services {
             background: var(--cream);
         }
@@ -339,7 +322,7 @@
             font-size: 0.95rem;
         }
 
-        /* ========== COMPLETED JOBS SECTION ========== */
+        /* Completed Jobs Section */
         .completed {
             background: var(--white);
         }
@@ -455,7 +438,7 @@
             color: #856404;
         }
 
-        /* ========== HOW IT WORKS SECTION ========== */
+        /* How It Works Section */
         .how-it-works {
             background: linear-gradient(135deg, var(--primary-green), var(--light-green));
             color: var(--white);
@@ -479,7 +462,6 @@
 
         .step {
             text-align: center;
-            position: relative;
         }
 
         .step-number {
@@ -507,7 +489,7 @@
             opacity: 0.9;
         }
 
-        /* ========== NOMINATION FORM SECTION ========== */
+        /* Nomination Form Section */
         .nominate {
             background: var(--cream);
         }
@@ -543,7 +525,7 @@
             margin-bottom: 8px;
         }
 
-        .form-group label .required {
+        .form-group .required {
             color: #ff6b6b;
         }
 
@@ -579,66 +561,45 @@
             margin-top: 5px;
         }
 
-        .file-upload {
-            position: relative;
-            border: 2px dashed var(--accent-green);
+        .photo-instructions {
+            background: #e8f5e9;
+            border: 2px solid var(--accent-green);
             border-radius: 10px;
-            padding: 40px 20px;
-            text-align: center;
-            background: rgba(124, 179, 66, 0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 20px;
+            margin-bottom: 25px;
         }
 
-        .file-upload:hover {
-            background: rgba(124, 179, 66, 0.1);
-            border-color: var(--primary-green);
-        }
-
-        .file-upload input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .file-upload-icon {
-            font-size: 3rem;
-            color: var(--accent-green);
-            margin-bottom: 10px;
-        }
-
-        .file-upload-text {
-            color: var(--light-text);
-        }
-
-        .file-upload-text strong {
+        .photo-instructions h4 {
             color: var(--primary-green);
-        }
-
-        .file-preview {
-            margin-top: 15px;
+            margin-bottom: 10px;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 10px;
         }
 
-        .preview-item {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid var(--accent-green);
+        .photo-instructions ol {
+            margin-left: 20px;
+            color: var(--light-text);
         }
 
-        .preview-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .photo-instructions li {
+            margin-bottom: 8px;
+        }
+
+        .photo-instructions a {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 5px;
         }
 
         .submit-btn {
@@ -659,35 +620,41 @@
             box-shadow: var(--shadow-hover);
         }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-success {
-            display: none;
+        /* Thank You Page Styles */
+        .thank-you-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
         }
 
-        .form-success.show {
-            display: block;
+        .thank-you-content {
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            box-shadow: var(--shadow-hover);
         }
 
-        .success-icon {
+        .thank-you-icon {
             font-size: 5rem;
-            color: var(--accent-green);
             margin-bottom: 20px;
         }
 
-        .form-success h3 {
+        .thank-you-content h1 {
             color: var(--primary-green);
-            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-content p {
+            color: var(--light-text);
             margin-bottom: 15px;
         }
 
-        /* ========== FOOTER ========== */
+        /* Footer */
         .footer {
             background: var(--primary-green);
             color: var(--white);
@@ -704,10 +671,6 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
         .footer-tagline {
@@ -749,7 +712,7 @@
             opacity: 0.8;
         }
 
-        /* ========== BACK TO TOP BUTTON ========== */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -779,7 +742,7 @@
             transform: translateY(-5px);
         }
 
-        /* ========== MOBILE RESPONSIVE ========== */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -833,22 +796,6 @@
             .jobs-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        /* ========== LOADING ANIMATION ========== */
-        .loader {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top-color: var(--white);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -983,7 +930,6 @@
         </div>
 
         <div class="jobs-grid">
-            <!-- JOB CARD 1 - Example with placeholder -->
             <div class="job-card">
                 <div class="job-placeholder">
                     <span class="job-placeholder-icon">📹</span>
@@ -996,7 +942,6 @@
                 </div>
             </div>
 
-            <!-- JOB CARD 2 - Example -->
             <div class="job-card">
                 <div class="job-placeholder">
                     <span class="job-placeholder-icon">📹</span>
@@ -1009,7 +954,6 @@
                 </div>
             </div>
 
-            <!-- JOB CARD 3 - Example In Progress -->
             <div class="job-card">
                 <div class="job-placeholder">
                     <span class="job-placeholder-icon">🎬</span>
@@ -1033,7 +977,7 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <h3>You Nominate</h3>
-                <p>Fill out our form with details and photos of an area that needs cleaning.</p>
+                <p>Fill out our form with details and photo links of an area that needs cleaning.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
@@ -1064,86 +1008,76 @@
                 <p>Please provide as much detail as possible to help us understand the area and what work is needed.</p>
             </div>
 
-            <!-- The actual form -->
-            <form id="nominationForm" action="https://formspree.io/f/xqearnwz" method="POST" enctype="multipart/form-data">
+            <!-- SIMPLE WORKING FORM - Replace YOUR_FORM_ID with your actual Formspree ID -->
+            <form action="https://formspree.io/f/xqearnwz" method="POST">
                 
                 <div class="form-group">
-                    <label for="nominatorName">Your Name <span class="required">*</span></label>
-                    <input type="text" id="nominatorName" name="nominatorName" required placeholder="Enter your full name">
+                    <label for="name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
                 </div>
 
                 <div class="form-group">
-                    <label for="nominatorEmail">Your Email <span class="required">*</span></label>
-                    <input type="email" id="nominatorEmail" name="nominatorEmail" required placeholder="Enter your email address">
+                    <label for="email">Your Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
                     <small>We'll only use this to update you about the nomination status.</small>
                 </div>
 
                 <div class="form-group">
-                    <label for="areaType">Type of Area <span class="required">*</span></label>
-                    <select id="areaType" name="areaType" required>
+                    <label for="area_type">Type of Area <span class="required">*</span></label>
+                    <select id="area_type" name="area_type" required>
                         <option value="">-- Select the type of area --</option>
                         <option value="Footpath">Footpath</option>
                         <option value="Corridor">Corridor</option>
                         <option value="Alley">Alley</option>
                         <option value="Blocked Pavement">Blocked Pavement</option>
                         <option value="Footpath Bridge">Footpath Bridge</option>
-                        <option value="Public Garden/Green Space">Public Garden/Green Space</option>
+                        <option value="Public Garden or Green Space">Public Garden/Green Space</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="areaLocation">Location/Address <span class="required">*</span></label>
-                    <input type="text" id="areaLocation" name="areaLocation" required placeholder="Street name, postcode, or nearest landmark">
+                    <label for="location">Location/Address <span class="required">*</span></label>
+                    <input type="text" id="location" name="location" required placeholder="Street name, postcode, or nearest landmark">
                     <small>Please be as specific as possible so we can find the area.</small>
                 </div>
 
                 <div class="form-group">
-                    <label for="areaDescription">Description of the Problem <span class="required">*</span></label>
-                    <textarea id="areaDescription" name="areaDescription" required placeholder="Please describe what needs cleaning. For example: overgrown bushes blocking the path, litter accumulation, moss on surfaces, etc."></textarea>
+                    <label for="description">Description of the Problem <span class="required">*</span></label>
+                    <textarea id="description" name="description" required placeholder="Please describe what needs cleaning. For example: overgrown bushes blocking the path, litter accumulation, moss on surfaces, etc."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="additionalInfo">Additional Information</label>
-                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other details that might be helpful? Access issues, best time to visit, safety concerns, etc."></textarea>
+                    <label for="additional_info">Additional Information</label>
+                    <textarea id="additional_info" name="additional_info" placeholder="Any other details that might be helpful? Access issues, best time to visit, safety concerns, etc."></textarea>
+                </div>
+
+                <!-- PHOTO LINK INSTRUCTIONS -->
+                <div class="photo-instructions">
+                    <h4>📸 How to Share Photos</h4>
+                    <p>Please upload your photo(s) to one of these free services and paste the link below:</p>
+                    <ol>
+                        <li><strong>Imgur</strong> (easiest): Go to <a href="https://imgur.com/upload" target="_blank">imgur.com/upload</a>, upload your photo, copy the link</li>
+                        <li><strong>Google Photos</strong>: Upload photo, click Share, copy link</li>
+                        <li><strong>Google Drive</strong>: Upload photo, right-click, Get link, copy it</li>
+                    </ol>
                 </div>
 
                 <div class="form-group">
-                    <label>Photo(s) of the Area <span class="required">*</span></label>
-                    <div class="file-upload" id="fileUploadArea">
-                        <div class="file-upload-icon">📸</div>
-                        <div class="file-upload-text">
-                            <strong>Click to upload</strong> or drag and drop<br>
-                            <small>PNG, JPG or JPEG (max 5MB each)</small>
-                        </div>
-                        <input type="file" id="areaPhotos" name="areaPhotos" accept="image/*" multiple required>
+                    <label for="photo_link">Photo Link(s) <span class="required">*</span></label>
+                    <textarea id="photo_link" name="photo_link" required placeholder="Paste your photo link(s) here. If you have multiple photos, paste each link on a new line."></textarea>
+                    <small>We need at least one photo to assess the area.</small>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required value="Yes, I understand and consent">
+                        <label for="consent">I understand that Fab Gardens <strong>does not accept volunteers</strong> and this is a nomination only. I consent to being contacted about this nomination. <span class="required">*</span></label>
                     </div>
-                    <div class="file-preview" id="filePreview"></div>
-                    <small>Please upload at least one clear photo showing the area that needs cleaning.</small>
                 </div>
 
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" name="consent" required>
-                        I understand that Fab Gardens <strong>does not accept volunteers</strong> and this is a nomination only. I consent to being contacted about this nomination.
-                    </label>
-                </div>
-
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    Submit Nomination
-                    <span class="loader" id="submitLoader"></span>
-                </button>
+                <button type="submit" class="submit-btn">Submit Nomination ✓</button>
             </form>
-
-            <!-- Success Message (hidden by default) -->
-            <div class="form-success" id="formSuccess">
-                <div class="success-icon">✅</div>
-                <h3>Thank You!</h3>
-                <p>Your nomination has been received. We'll review it and be in touch if we need any additional information.</p>
-                <p>Don't forget to subscribe to our <a href="https://www.youtube.com/@fabgardens" target="_blank">YouTube channel</a> to see when your nominated area gets cleaned!</p>
-                <br>
-                <button class="btn btn-primary" onclick="resetForm()">Submit Another Nomination</button>
-            </div>
         </div>
     </section>
 
@@ -1151,7 +1085,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <span>🌿</span> Fab Gardens
+                🌿 Fab Gardens
             </div>
             <p class="footer-tagline">Cleaning our community, one area at a time.</p>
             
@@ -1169,127 +1103,29 @@
     <!-- BACK TO TOP BUTTON -->
     <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
 
-    <!-- JAVASCRIPT -->
+    <!-- SIMPLE JAVASCRIPT -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.textContent = '☰';
-            });
+        // Mobile Menu
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            var nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+            this.textContent = nav.classList.contains('active') ? '✕' : '☰';
         });
 
         // Back to Top Button
-        const backToTopBtn = document.getElementById('backToTop');
-
         window.addEventListener('scroll', function() {
+            var btn = document.getElementById('backToTop');
             if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('show');
+                btn.classList.add('show');
             } else {
-                backToTopBtn.classList.remove('show');
+                btn.classList.remove('show');
             }
         });
 
-        backToTopBtn.addEventListener('click', function() {
+        document.getElementById('backToTop').addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // File Upload Preview
-        const fileInput = document.getElementById('areaPhotos');
-        const filePreview = document.getElementById('filePreview');
-
-        fileInput.addEventListener('change', function() {
-            filePreview.innerHTML = '';
-            const files = this.files;
-
-            for (let i = 0; i < files.length; i++) {
-                if (files[i].type.startsWith('image/')) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const previewItem = document.createElement('div');
-                        previewItem.className = 'preview-item';
-                        previewItem.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-                        filePreview.appendChild(previewItem);
-                    };
-                    reader.readAsDataURL(files[i]);
-                }
-            }
-        });
-
-        // Form Submission (you'll need to set up Formspree or similar)
-        const form = document.getElementById('nominationForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const submitLoader = document.getElementById('submitLoader');
-        const formSuccess = document.getElementById('formSuccess');
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            // Show loading state
-            submitBtn.disabled = true;
-            submitLoader.style.display = 'inline-block';
-
-            try {
-                const formData = new FormData(form);
-                
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // Hide form, show success message
-                    form.style.display = 'none';
-                    document.querySelector('.form-intro').style.display = 'none';
-                    formSuccess.classList.add('show');
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                alert('There was a problem submitting the form. Please try again or contact us directly.');
-                console.error('Error:', error);
-            } finally {
-                submitBtn.disabled = false;
-                submitLoader.style.display = 'none';
-            }
-        });
-
-        // Reset form function
-        function resetForm() {
-            form.reset();
-            filePreview.innerHTML = '';
-            form.style.display = 'block';
-            document.querySelector('.form-intro').style.display = 'block';
-            formSuccess.classList.remove('show');
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
         });
     </script>
 
 </body>
-
 </html>
