@@ -1663,7 +1663,7 @@
         </div>
     </section>
 
-   <!-- NOMINATION SECTION - GOOGLE FORM -->
+<!-- NOMINATION SECTION - GOOGLE FORM -->
 <section class="nominate" id="nominate">
     <h2 class="section-title">Nominate an Area for Safer Walking</h2>
     <p class="section-subtitle">Know a dangerous or neglected public space in Surrey? Tell us about it!</p>
@@ -1709,73 +1709,8 @@
             <span class="button-sub-text">Tap to nominate an area (opens in new tab)</span>
         </a>
 
-        <p class="form-note"><i class="fas fa-lock"></i> Your information is secure and only used to process your nomination.</p>
-
     </div>
 </section>
-
-                <div class="form-group">
-                    <label for="location">Location/Address <span class="required">*</span></label>
-                    <input type="text" id="location" name="location" required placeholder="Street name, postcode, or nearest landmark">
-                    <small>Please be as specific as possible so we can find the area.</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description of the Safety Issue <span class="required">*</span></label>
-                    <textarea id="description" name="description" required placeholder="Please describe the hazards and what makes this area dangerous or difficult to use. For example: overgrown bushes forcing pedestrians into road, tripping hazards, visibility issues, etc."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="who_affected">Who is affected by this issue?</label>
-                    <textarea id="who_affected" name="who_affected" placeholder="For example: schoolchildren, elderly residents, families with pushchairs, dog walkers, etc."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="additional_info">Additional Information</label>
-                    <textarea id="additional_info" name="additional_info" placeholder="Any other details that might be helpful? Access issues, best time to visit, safety concerns, etc."></textarea>
-                </div>
-
-<!-- DIRECT PHOTO UPLOAD -->
-<div class="form-group">
-    <label for="photos"><i class="fas fa-camera"></i> Upload Photo(s) of the Area <span class="required">*</span></label>
-    <div class="file-upload-wrapper">
-        <input 
-            type="file" 
-            id="photos" 
-            name="photos" 
-            accept="image/*" 
-            multiple 
-            required
-            class="file-input"
-        >
-        <div class="file-upload-button">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <span>Tap to Choose Photos</span>
-            <small>or take a new photo with your camera</small>
-        </div>
-    </div>
-    <div class="file-selected" id="fileSelected"></div>
-    <small>You can select multiple photos. Maximum 10MB per photo. JPG, PNG, or HEIC accepted.</small>
-</div>
-
-<!-- OPTIONAL: Keep link option as backup -->
-<div class="form-group">
-    <label for="photo_link">Or Paste Photo Link (optional)</label>
-    <input type="text" id="photo_link" name="photo_link" placeholder="If you prefer, paste a link to your photos here">
-    <small>Use this if you already have photos uploaded somewhere else.</small>
-</div>
-
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="consent" name="consent" required value="Yes, I understand and consent">
-                        <label for="consent">I understand that Fab Gardens <strong>does not accept volunteers</strong> due to insurance requirements and this is a nomination only. I consent to being contacted about this nomination. <span class="required">*</span></label>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">🌻 Submit Nomination for Safer Walking</button>
-            </form>
-        </div>
-    </section>
 
     <!-- CONTACT SECTION -->
     <section class="contact" id="contact">
@@ -1852,22 +1787,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // File Upload Display
-document.getElementById('photos').addEventListener('change', function() {
-    var fileSelected = document.getElementById('fileSelected');
-    fileSelected.innerHTML = '';
-    
-    if (this.files.length > 0) {
-        for (var i = 0; i < this.files.length; i++) {
-            var fileName = this.files[i].name;
-            var fileSize = (this.files[i].size / 1024 / 1024).toFixed(2);
-            var fileItem = document.createElement('div');
-            fileItem.className = 'file-selected-item';
-            fileItem.innerHTML = '<i class="fas fa-check-circle"></i> ' + fileName + ' (' + fileSize + ' MB)';
-            fileSelected.appendChild(fileItem);
-        }
-    }
-});
+
         // Mobile Menu
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             var nav = document.getElementById('navLinks');
@@ -1911,6 +1831,7 @@ document.getElementById('photos').addEventListener('change', function() {
 
 </body>
 </html>
+
 
 
 
