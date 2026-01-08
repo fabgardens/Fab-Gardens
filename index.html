@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fab Gardens - Restoring Safety to Public Paths | Surrey</title>
-    <meta name="description" content="Fab Gardens restores neglected pavements, footpaths, and public spaces across Surrey. Founded by Fabio Zacarias. Nominate an area that needs cleaning.">
+    
+    <!-- IMPROVED SEO META TAGS -->
+    <title>Fab Gardens – Restoring Safety to Public Paths in Surrey</title>
+    <meta name="description" content="Fab Gardens clears dangerous, neglected pavements and footpaths so people can walk safely again. Nominate unsafe areas in Surrey and watch our community clean-ups.">
+    <meta name="keywords" content="public footpath cleaning, pavement clearing, Surrey community project, path safety, overgrown footpath, Ashtead, Leatherhead, Epsom">
+    <meta name="author" content="Fabio Zacarias">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Fab Gardens – Restoring Safety to Public Paths in Surrey">
+    <meta property="og:description" content="We clear dangerous, neglected public paths so people can walk safely again. Nominate an area in Surrey.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://fabgardens.github.io/Fab-Gardens/">
+    <meta property="og:type" content="website">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -97,13 +111,13 @@
             cursor: pointer;
         }
 
-        /* Hero Section with Background Image */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             background-image: linear-gradient(rgba(45, 90, 39, 0.7), rgba(45, 90, 39, 0.8)), url('hero.jpg');
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -133,30 +147,53 @@
         .hero h1 {
             font-size: 3rem;
             color: var(--white);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-tagline {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--sunflower-yellow);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: 600;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        .hero p {
+        .hero-value-statement {
             font-size: 1.2rem;
             color: rgba(255,255,255,0.95);
-            margin-bottom: 15px;
+            margin-bottom: 30px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        .hero-kindness {
+        /* NEW: Three Pillars */
+        .hero-pillars {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-pillar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-pillar i {
+            color: var(--sunflower-yellow);
             font-size: 1.3rem;
+        }
+
+        .hero-kindness {
+            font-size: 1.2rem;
             color: var(--sunflower-yellow);
             font-style: italic;
             margin-bottom: 40px;
@@ -255,13 +292,41 @@
             margin: 0 auto 50px;
         }
 
-        /* About Section with Background Image */
-    .about {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('banner.jpg');
-    background-size: cover;
-    background-position: center 10%;
-    background-repeat: no-repeat;
-}
+        /* About Section */
+        .about {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('banner.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+
+        /* NEW: Values Block */
+        .values-block {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .values-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--sunflower-yellow);
+        }
+
+        .values-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .values-block p:last-child {
+            margin-bottom: 0;
+        }
 
         .about-container {
             max-width: 1200px;
@@ -285,6 +350,29 @@
             margin-bottom: 20px;
             color: var(--light-text);
             line-height: 1.8;
+        }
+
+        /* NEW: Why It Matters Box */
+        .why-matters {
+            background: #fff3cd;
+            border-left: 4px solid var(--sunflower-orange);
+            padding: 20px 25px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0;
+        }
+
+        .why-matters h4 {
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .why-matters p {
+            color: var(--dark-text);
+            margin-bottom: 0;
+            font-size: 0.95rem;
         }
 
         .founder-name {
@@ -388,7 +476,7 @@
             opacity: 0.95;
         }
 
-        /* Services Section */
+        /* Services Section - UPDATED */
         .services {
             background: var(--cream);
         }
@@ -397,7 +485,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -427,6 +515,15 @@
             margin-bottom: 10px;
         }
 
+        /* NEW: Safety Label */
+        .safety-label {
+            color: var(--sunflower-orange);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
         .service-card p {
             color: var(--light-text);
             font-size: 0.95rem;
@@ -441,6 +538,22 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto 40px;
+        }
+
+        /* NEW: Jobs Story Intro */
+        .jobs-story {
+            background: var(--cream);
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .jobs-story p {
+            color: var(--dark-text);
+            font-size: 1rem;
+            margin: 0;
+            font-style: italic;
         }
 
         .youtube-link {
@@ -523,6 +636,23 @@
             margin-bottom: 15px;
         }
 
+        /* NEW: Safety Outcome */
+        .safety-outcome {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .safety-outcome i {
+            color: #28a745;
+        }
+
         .job-status {
             display: inline-block;
             padding: 5px 15px;
@@ -592,7 +722,7 @@
             opacity: 0.9;
         }
 
-        /* Nomination Form Section */
+        /* Nomination Form Section - UPDATED */
         .nominate {
             background: var(--cream);
         }
@@ -604,6 +734,29 @@
             padding: 50px;
             border-radius: 20px;
             box-shadow: var(--shadow);
+        }
+
+        /* NEW: Scope Notice at Top */
+        .scope-notice {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .scope-notice h4 {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .scope-notice p {
+            margin: 0;
+            opacity: 0.9;
         }
 
         .form-intro {
@@ -620,6 +773,22 @@
 
         .form-intro p {
             color: var(--light-text);
+        }
+
+        /* NEW: Outcome Promise */
+        .outcome-promise {
+            background: #e8f5e9;
+            border: 2px solid var(--accent-green);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .outcome-promise p {
+            color: var(--dark-text);
+            margin: 0;
+            font-size: 0.95rem;
         }
 
         .form-group {
@@ -790,15 +959,15 @@
         .social-card.instagram { border-bottom: 4px solid #e4405f; }
         .social-card.tiktok { border-bottom: 4px solid #000000; }
 
-.social-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
+        .social-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-.social-card.youtube .icon { color: #ff0000; }
-.social-card.facebook .icon { color: #1877f2; }
-.social-card.instagram .icon { color: #e4405f; }
-.social-card.tiktok .icon { color: #000000; }
+        .social-card.youtube .icon { color: #ff0000; }
+        .social-card.facebook .icon { color: #1877f2; }
+        .social-card.instagram .icon { color: #e4405f; }
+        .social-card.tiktok .icon { color: #000000; }
 
         .social-card .name {
             font-weight: 600;
@@ -850,6 +1019,13 @@
         .footer-kindness {
             font-style: italic;
             opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        /* NEW: Safety Priority */
+        .footer-safety {
+            font-weight: 600;
+            color: var(--sunflower-yellow);
             margin-bottom: 30px;
         }
 
@@ -870,7 +1046,7 @@
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             color: var(--white);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
         }
@@ -944,10 +1120,6 @@
                 height: 40px;
             }
 
-            .hero {
-                background-attachment: scroll;
-            }
-
             .hero-logo {
                 width: 100px;
             }
@@ -960,17 +1132,18 @@
                 font-size: 1.1rem;
             }
 
-            .hero p {
+            .hero-value-statement {
                 font-size: 1rem;
+            }
+
+            .hero-pillars {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .about {
-                background-attachment: scroll;
             }
 
             .about-container {
@@ -983,6 +1156,10 @@
 
             .about-image .big-logo {
                 width: 120px;
+            }
+
+            .values-block {
+                padding: 25px;
             }
 
             .form-container {
@@ -1011,11 +1188,10 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- NAVIGATION WITH YOUR LOGO -->
+    <!-- NAVIGATION -->
     <nav class="navbar">
         <a href="#" class="logo">
             <img src="logo.png" alt="Fab Gardens Logo" class="logo-image">
@@ -1032,17 +1208,34 @@
         <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
     </nav>
 
-    <!-- HERO SECTION WITH YOUR BACKGROUND IMAGE -->
+    <!-- HERO SECTION - IMPROVED -->
     <section class="hero" id="home">
         <div class="hero-content">
             <img src="logo.png" alt="Fab Gardens" class="hero-logo">
             <h1>Fab Gardens</h1>
             <p class="hero-tagline">Restoring safety where neglect took over.</p>
-            <p>We clear dangerous, neglected public paths so people can walk safely again.</p>
+            <p class="hero-value-statement">We clear dangerous, neglected public paths so walkers, parents, and carers can move safely again.</p>
+            
+            <!-- NEW: Three Pillars -->
+            <div class="hero-pillars">
+                <div class="hero-pillar">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Safe Pedestrian Access</span>
+                </div>
+                <div class="hero-pillar">
+                    <i class="fas fa-users"></i>
+                    <span>Restored Community Spaces</span>
+                </div>
+                <div class="hero-pillar">
+                    <i class="fas fa-video"></i>
+                    <span>Documented Clean-Ups</span>
+                </div>
+            </div>
+
             <p class="hero-kindness">✨ Remember, kindness is contagious. ✨</p>
             <div class="hero-buttons">
                 <a href="#nominate" class="btn btn-primary">🌻 Nominate an Area</a>
-                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="btn btn-secondary">📺 Watch Our Videos</a>
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="btn btn-secondary"><i class="fab fa-youtube"></i> Watch Our Videos</a>
             </div>
         </div>
     </section>
@@ -1069,10 +1262,16 @@
         </div>
     </div>
 
-    <!-- ABOUT SECTION WITH YOUR BACKGROUND IMAGE -->
+    <!-- ABOUT SECTION - IMPROVED -->
     <section class="about" id="about">
         <h2 class="section-title">About Fab Gardens</h2>
         <p class="section-subtitle">Practical, hands-on clean-ups that make a real difference.</p>
+        
+        <!-- NEW: Values Block -->
+        <div class="values-block">
+            <h3>🌻 Who We Serve</h3>
+            <p>We serve adults aged 35–65+ who care about community safety and dignity. Our work isn't about aesthetics — it's about removing real hazards so people can walk safely again.</p>
+        </div>
         
         <div class="about-container">
             <div class="about-text">
@@ -1081,6 +1280,12 @@
                 <p>We focus on practical, hands-on clean-ups that remove real hazards and help communities feel safer using the spaces they rely on every day.</p>
                 <p><strong>This work isn't about appearances or entertainment.</strong></p>
                 <p>It's about responsibility, dignity, and making sure public paths are safe to use again.</p>
+                
+                <!-- NEW: Why It Matters -->
+                <div class="why-matters">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Why It Matters</h4>
+                    <p>When public paths are left overgrown or obstructed, people are forced into roads, pushed onto dangerous ground, or avoid walking altogether. That affects daily life — especially for older residents, families, and anyone with mobility challenges.</p>
+                </div>
                 
                 <p class="founder-name">🌻 Founded by Fabio Zacarias</p>
 
@@ -1124,7 +1329,7 @@
         </div>
     </section>
 
-    <!-- WHAT WE CLEAN SECTION -->
+    <!-- WHAT WE CLEAN SECTION - UPDATED -->
     <section class="services" id="services">
         <h2 class="section-title">What We Clean</h2>
         <p class="section-subtitle">We tackle public spaces that have become dangerous or inaccessible due to neglect.</p>
@@ -1133,56 +1338,61 @@
             <div class="service-card">
                 <div class="service-icon">🚶</div>
                 <h3>Footpaths</h3>
-                <p>Clearing overgrown vegetation and debris from walking paths to make them safe and accessible.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏢</div>
-                <h3>Corridors</h3>
-                <p>Cleaning and tidying shared corridors in residential and public buildings.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏘️</div>
-                <h3>Alleys</h3>
-                <p>Transforming neglected alleys into clean, safe passages for residents.</p>
+                <p class="safety-label">When overgrowth blocks safe walking routes</p>
+                <p>Clearing dangerous vegetation and debris from walking paths to restore safe and accessible pedestrian routes.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🧱</div>
                 <h3>Blocked Pavements</h3>
-                <p>Removing obstructions and overgrowth that block pedestrian access.</p>
+                <p class="safety-label">When overgrowth forces pedestrians into traffic</p>
+                <p>Removing obstructions and overgrowth that block pedestrian access and push people into dangerous roads.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🪧</div>
+                <h3>Road Sign Visibility</h3>
+                <p class="safety-label">When moss hides crucial safety information</p>
+                <p>Restoring visibility to road signs and safety markers obscured by moss, dirt, or vegetation growth.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🌉</div>
                 <h3>Footpath Bridges</h3>
-                <p>Maintaining and cleaning bridges along walking routes and trails.</p>
+                <p class="safety-label">When crossing becomes hazardous</p>
+                <p>Maintaining and cleaning bridges along walking routes to prevent slips and ensure safe crossings.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🌻</div>
                 <h3>Other Public Areas</h3>
-                <p>Any neglected public space that poses a safety hazard - just nominate it!</p>
+                <p class="safety-label">Any space with clear safety issues</p>
+                <p>Any neglected public space that poses a genuine safety hazard to pedestrians — just nominate it!</p>
             </div>
         </div>
     </section>
 
-    <!-- COMPLETED JOBS SECTION -->
+    <!-- COMPLETED JOBS SECTION - IMPROVED -->
     <section class="completed" id="completed">
         <h2 class="section-title">Completed Jobs</h2>
         <p class="section-subtitle">Watch our transformations and see the real difference we're making in Surrey.</p>
         
         <div class="completed-intro">
+            <!-- NEW: Story Intro -->
+            <div class="jobs-story">
+                <p>Every project featured here began as a nomination and posed a real safety issue for walkers, families, or local residents.</p>
+            </div>
+            
             <p>We document every clean-up job and share the full process on our YouTube channels. Subscribe to follow our work!</p>
             <div>
                 <a href="https://www.youtube.com/@fabgardens" target="_blank" class="youtube-link">
-                    ▶ Fab Gardens (Full Videos)
+                    <i class="fab fa-youtube"></i> Fab Gardens (Full Videos)
                 </a>
                 <a href="https://youtube.com/@fabgardensf" target="_blank" class="youtube-link secondary">
-                    ▶ Fab Gardens F&F (Fast Videos)
+                    <i class="fab fa-youtube"></i> Fab Gardens F&F (Fast Videos)
                 </a>
             </div>
         </div>
 
         <div class="jobs-grid">
 
-            <!-- VIDEO 1: Ashtead Village Public Footpath -->
+            <!-- VIDEO 1 -->
             <div class="job-card">
                 <div class="job-video">
                     <iframe 
@@ -1195,16 +1405,21 @@
                 </div>
                 <div class="job-details">
                     <h3>🌻 Ashtead Village Public Footpath</h3>
-                    <p>Complete transformation of a neglected public footpath in Ashtead Village. Cleared dangerous overgrowth to restore safe pedestrian access.</p>
+                    <p>Complete transformation of a neglected public footpath in Ashtead Village. Cleared dangerous overgrowth blocking the path.</p>
+                    <!-- NEW: Safety Outcome -->
+                    <div class="safety-outcome">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Restored safe walking access for residents and families using this route daily.</span>
+                    </div>
                     <span class="job-status status-completed">✓ Completed</span>
                     <br><br>
                     <a href="https://www.youtube.com/watch?v=5UyBhb6Xouk" target="_blank" style="color: #2d5a27; font-weight: 600; text-decoration: none;">
-                        ▶ Watch Full Video on YouTube
+                        <i class="fab fa-youtube"></i> Watch Full Video on YouTube
                     </a>
                 </div>
             </div>
 
-            <!-- VIDEO 2: Pavement on School in Ashtead Village -->
+            <!-- VIDEO 2 -->
             <div class="job-card">
                 <div class="job-video">
                     <iframe 
@@ -1217,16 +1432,21 @@
                 </div>
                 <div class="job-details">
                     <h3>🌻 Pavement on School in Ashtead Village</h3>
-                    <p>Cleared and restored the pavement near a school in Ashtead Village. Making routes safer for children and families walking to school.</p>
+                    <p>Cleared and restored the pavement near a local school where overgrowth was pushing pedestrians into the road.</p>
+                    <!-- NEW: Safety Outcome -->
+                    <div class="safety-outcome">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Restored safe walking access for children and their families near the school path.</span>
+                    </div>
                     <span class="job-status status-completed">✓ Completed</span>
                     <br><br>
                     <a href="https://www.youtube.com/watch?v=LktubbvPEdo" target="_blank" style="color: #2d5a27; font-weight: 600; text-decoration: none;">
-                        ▶ Watch Full Video on YouTube
+                        <i class="fab fa-youtube"></i> Watch Full Video on YouTube
                     </a>
                 </div>
             </div>
 
-            <!-- VIDEO 3: Leatherhead Village Public Footpath -->
+            <!-- VIDEO 3 -->
             <div class="job-card">
                 <div class="job-video">
                     <iframe 
@@ -1240,15 +1460,18 @@
                 <div class="job-details">
                     <h3>🌻 Leatherhead Village Public Footpath</h3>
                     <p>Restored a dangerously neglected public footpath in Leatherhead Village. Full clean-up including vegetation clearance and hazard removal.</p>
+                    <!-- NEW: Safety Outcome -->
+                    <div class="safety-outcome">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Restored safe passage for elderly residents and dog walkers who use this path daily.</span>
+                    </div>
                     <span class="job-status status-completed">✓ Completed</span>
                     <br><br>
                     <a href="https://www.youtube.com/watch?v=FZtG8AQTFLE" target="_blank" style="color: #2d5a27; font-weight: 600; text-decoration: none;">
-                        ▶ Watch Full Video on YouTube
+                        <i class="fab fa-youtube"></i> Watch Full Video on YouTube
                     </a>
                 </div>
             </div>
-
-            <!-- ADD MORE VIDEOS HERE IN THE FUTURE -->
 
         </div>
     </section>
@@ -1282,19 +1505,31 @@
         </div>
     </section>
 
-    <!-- NOMINATION FORM SECTION -->
+    <!-- NOMINATION FORM SECTION - IMPROVED -->
     <section class="nominate" id="nominate">
-        <h2 class="section-title">Nominate an Area</h2>
+        <h2 class="section-title">Nominate an Area for Safer Walking</h2>
         <p class="section-subtitle">Know a dangerous or neglected public space in Surrey? Tell us about it!</p>
         
         <div class="form-container">
+            
+            <!-- NEW: Scope Notice at Top -->
+            <div class="scope-notice">
+                <h4><i class="fas fa-map-marker-alt"></i> Service Area</h4>
+                <p>We cover all of Surrey County within <strong>20 miles of KT21 1AA</strong><br>Including Ashtead, Leatherhead, Epsom & surrounding areas</p>
+            </div>
+
             <div class="form-intro">
                 <h3>🌻 Nomination Form</h3>
                 <p>Please provide as much detail as possible to help us understand the area and what hazards exist.</p>
             </div>
 
-            <!-- FORM - Replace YOUR_FORM_ID with your actual Formspree ID -->
-            <form action="https://formspree.io/f/xqearnwz" method="POST">
+            <!-- NEW: Outcome Promise -->
+            <div class="outcome-promise">
+                <p><i class="fas fa-info-circle"></i> <strong>What happens next?</strong> After you nominate, we review the area, plan the clean-up, and document the process on video so the community learns why it mattered.</p>
+            </div>
+
+            <!-- FORM -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 
                 <div class="form-group">
                     <label for="name">Your Name <span class="required">*</span></label>
@@ -1312,24 +1547,27 @@
                     <select id="area_type" name="area_type" required>
                         <option value="">-- Select the type of area --</option>
                         <option value="Footpath">Footpath</option>
-                        <option value="Corridor">Corridor</option>
-                        <option value="Alley">Alley</option>
                         <option value="Blocked Pavement">Blocked Pavement</option>
+                        <option value="Road Sign Visibility">Road Sign Visibility</option>
                         <option value="Footpath Bridge">Footpath Bridge</option>
-                        <option value="Public Garden or Green Space">Public Garden/Green Space</option>
-                        <option value="Other">Other</option>
+                        <option value="Other Public Area">Other Public Area (with clear safety issue)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="location">Location/Address <span class="required">*</span></label>
                     <input type="text" id="location" name="location" required placeholder="Street name, postcode, or nearest landmark">
-                    <small>Please be as specific as possible so we can find the area. Must be within 20 miles of KT21 1AA (Surrey).</small>
+                    <small>Please be as specific as possible so we can find the area.</small>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description of the Problem <span class="required">*</span></label>
-                    <textarea id="description" name="description" required placeholder="Please describe the hazards and what makes this area dangerous or difficult to use. For example: overgrown bushes blocking the path, tripping hazards, visibility issues, etc."></textarea>
+                    <label for="description">Description of the Safety Issue <span class="required">*</span></label>
+                    <textarea id="description" name="description" required placeholder="Please describe the hazards and what makes this area dangerous or difficult to use. For example: overgrown bushes forcing pedestrians into road, tripping hazards, visibility issues, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="who_affected">Who is affected by this issue?</label>
+                    <textarea id="who_affected" name="who_affected" placeholder="For example: schoolchildren, elderly residents, families with pushchairs, dog walkers, etc."></textarea>
                 </div>
 
                 <div class="form-group">
@@ -1339,7 +1577,7 @@
 
                 <!-- PHOTO LINK INSTRUCTIONS -->
                 <div class="photo-instructions">
-                    <h4>📸 How to Share Photos</h4>
+                    <h4><i class="fas fa-camera"></i> How to Share Photos</h4>
                     <p>Please upload your photo(s) to one of these free services and paste the link below:</p>
                     <ol>
                         <li><strong>Postimages</strong> (easiest - no account needed): Go to <a href="https://postimages.org" target="_blank">postimages.org</a>, click "Choose images", upload your photo, copy the "Direct link"</li>
@@ -1361,7 +1599,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="submit-btn">🌻 Submit Nomination</button>
+                <button type="submit" class="submit-btn">🌻 Submit Nomination for Safer Walking</button>
             </form>
         </div>
     </section>
@@ -1373,43 +1611,43 @@
         
         <div class="contact-container">
             <a href="mailto:fabgardens81@gmail.com" class="contact-email">
-                <span>📧</span>
+                <span><i class="fas fa-envelope"></i></span>
                 fabgardens81@gmail.com
             </a>
 
             <h3 style="color: #2d5a27; margin-bottom: 25px;">Follow Our Work</h3>
 
-<div class="social-grid">
-    <a href="https://www.youtube.com/@fabgardens" target="_blank" class="social-card youtube">
-        <div class="icon"><i class="fab fa-youtube"></i></div>
-        <div class="name">YouTube</div>
-        <div class="handle">Full Videos</div>
-    </a>
-    <a href="https://youtube.com/@fabgardensf" target="_blank" class="social-card youtube">
-        <div class="icon"><i class="fab fa-youtube"></i></div>
-        <div class="name">YouTube F&F</div>
-        <div class="handle">Fast Videos</div>
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" class="social-card facebook">
-        <div class="icon"><i class="fab fa-facebook-f"></i></div>
-        <div class="name">Facebook</div>
-        <div class="handle">@fabgardens</div>
-    </a>
-    <a href="https://www.instagram.com/fab_gardens" target="_blank" class="social-card instagram">
-        <div class="icon"><i class="fab fa-instagram"></i></div>
-        <div class="name">Instagram</div>
-        <div class="handle">@fab_gardens</div>
-    </a>
-    <a href="https://www.tiktok.com/@fab.gardens" target="_blank" class="social-card tiktok">
-        <div class="icon"><i class="fab fa-tiktok"></i></div>
-        <div class="name">TikTok</div>
-        <div class="handle">@fab.gardens</div>
-    </a>
-</div>
+            <div class="social-grid">
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="social-card youtube">
+                    <div class="icon"><i class="fab fa-youtube"></i></div>
+                    <div class="name">YouTube</div>
+                    <div class="handle">Full Videos</div>
+                </a>
+                <a href="https://youtube.com/@fabgardensf" target="_blank" class="social-card youtube">
+                    <div class="icon"><i class="fab fa-youtube"></i></div>
+                    <div class="name">YouTube F&F</div>
+                    <div class="handle">Fast Videos</div>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" class="social-card facebook">
+                    <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                    <div class="name">Facebook</div>
+                    <div class="handle">@fabgardens</div>
+                </a>
+                <a href="https://www.instagram.com/fab_gardens" target="_blank" class="social-card instagram">
+                    <div class="icon"><i class="fab fa-instagram"></i></div>
+                    <div class="name">Instagram</div>
+                    <div class="handle">@fab_gardens</div>
+                </a>
+                <a href="https://www.tiktok.com/@fab.gardens" target="_blank" class="social-card tiktok">
+                    <div class="icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="name">TikTok</div>
+                    <div class="handle">@fab.gardens</div>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER WITH YOUR LOGO -->
+    <!-- FOOTER - IMPROVED -->
     <footer class="footer">
         <div class="footer-content">
             <img src="logo.png" alt="Fab Gardens" class="footer-logo-img">
@@ -1417,14 +1655,16 @@
             <p class="footer-founder">Founded by Fabio Zacarias</p>
             <p class="footer-tagline">Restoring safety where neglect took over.</p>
             <p class="footer-kindness">Remember, kindness is contagious. 💛</p>
+            <!-- NEW: Safety Priority -->
+            <p class="footer-safety">Safety first, dignity always.</p>
             
-<div class="footer-social">
-    <a href="https://www.youtube.com/@fabgardens" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://youtube.com/@fabgardensf" target="_blank" title="YouTube F&F"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/fab_gardens" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@fab.gardens" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-</div>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://youtube.com/@fabgardensf" target="_blank" title="YouTube F&F"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/fab_gardens" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@fab.gardens" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
 
             <div class="footer-bottom">
                 <p>© 2024 Fab Gardens Community Project. All rights reserved.</p>
@@ -1435,7 +1675,7 @@
     </footer>
 
     <!-- BACK TO TOP BUTTON -->
-    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+    <button class="back-to-top" id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -1482,6 +1722,7 @@
 
 </body>
 </html>
+
 
 
 
