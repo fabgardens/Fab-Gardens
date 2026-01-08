@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fab Gardens - Community Clean-Up Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== BASIC RESET & VARIABLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d5a27;
+            --light-green: #4a7c43;
+            --accent-green: #7cb342;
+            --cream: #f5f5dc;
+            --white: #ffffff;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background-color: var(--cream);
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-green);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--accent-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100px 100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            background: var(--cream);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        /* ========== SECTIONS GENERAL ========== */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: var(--cream);
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .about-image .big-icon {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+
+        /* ========== IMPORTANT NOTICE ========== */
+        .notice {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .notice-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .notice h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .notice p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* ========== WHAT WE CLEAN SECTION ========== */
+        .services {
+            background: var(--cream);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        /* ========== COMPLETED JOBS SECTION ========== */
+        .completed {
+            background: var(--white);
+        }
+
+        .completed-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .youtube-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ff0000;
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            background: #cc0000;
+        }
+
+        .jobs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .job-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .job-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .job-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .job-placeholder {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .job-placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .job-details {
+            padding: 25px;
+        }
+
+        .job-details h3 {
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .job-details p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .job-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        /* ========== HOW IT WORKS SECTION ========== */
+        .how-it-works {
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: var(--white);
+        }
+
+        .how-it-works .section-title {
+            color: var(--white);
+        }
+
+        .how-it-works .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* ========== NOMINATION FORM SECTION ========== */
+        .nominate {
+            background: var(--cream);
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--cream);
+        }
+
+        .form-intro p {
+            color: var(--light-text);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .form-group label .required {
+            color: #ff6b6b;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group small {
+            display: block;
+            color: var(--light-text);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .file-upload {
+            position: relative;
+            border: 2px dashed var(--accent-green);
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(124, 179, 66, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            background: rgba(124, 179, 66, 0.1);
+            border-color: var(--primary-green);
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        .file-upload-text {
+            color: var(--light-text);
+        }
+
+        .file-upload-text strong {
+            color: var(--primary-green);
+        }
+
+        .file-preview {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--accent-green);
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        .form-success h3 {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 5% 30px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ========== BACK TO TOP BUTTON ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        /* ========== MOBILE RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-green);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== LOADING ANIMATION ========== */
+        .loader {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: var(--white);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">🌿</span>
+            <span>Fab Gardens</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">What We Clean</a></li>
+            <li><a href="#completed">Completed Jobs</a></li>
+            <li><a href="#nominate">Nominate</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-icon">🧹</div>
+            <h1>Cleaning Our Community, One Area at a Time</h1>
+            <p>Fab Gardens is a community clean-up project dedicated to restoring footpaths, corridors, alleys, and public spaces. We document every job and share our progress on YouTube to inspire positive change in our neighbourhoods.</p>
+            <div class="hero-buttons">
+                <a href="#nominate" class="btn btn-primary">Nominate an Area</a>
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="btn btn-secondary">📺 Watch Our Videos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Fab Gardens</h2>
+        <p class="section-subtitle">We're passionate about making our public spaces cleaner, safer, and more enjoyable for everyone.</p>
+        
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Our Mission</h3>
+                <p>Fab Gardens is a community-focused project that tackles neglected public areas. From overgrown footpaths to blocked pavements, we roll up our sleeves and get the job done.</p>
+                <p>We record every cleaning job from start to finish and share the transformation on our YouTube channel. Our goal is to generate awareness and encourage people across the community to nominate areas that need attention.</p>
+                <h3>How We Work</h3>
+                <p>When you nominate an area, we assess it, plan the clean-up, and document the entire process. You'll be able to watch the before-and-after transformation on our YouTube channel!</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">📍</span>
+                        <span>Local Focus</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📹</span>
+                        <span>Documented Progress</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌱</span>
+                        <span>Community Impact</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✨</span>
+                        <span>Visible Results</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="big-icon">🌻</div>
+                <h3>Making a Difference</h3>
+                <p>Every nomination helps us identify areas in need. Together, we can transform neglected spaces into clean, welcoming parts of our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPORTANT NOTICE -->
+    <section class="notice">
+        <div class="notice-content">
+            <h3>⚠️ Important Notice</h3>
+            <p><strong>We do not accept volunteers</strong> due to insurance requirements. However, you can help by nominating areas that need cleaning! Your nominations are invaluable in helping us identify where our efforts are needed most.</p>
+        </div>
+    </section>
+
+    <!-- WHAT WE CLEAN SECTION -->
+    <section class="services" id="services">
+        <h2 class="section-title">What We Clean</h2>
+        <p class="section-subtitle">We tackle a variety of public spaces that have become neglected or overgrown.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚶</div>
+                <h3>Footpaths</h3>
+                <p>Clearing overgrown vegetation and debris from walking paths to make them safe and accessible.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Corridors</h3>
+                <p>Cleaning and tidying shared corridors in residential and public buildings.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏘️</div>
+                <h3>Alleys</h3>
+                <p>Transforming neglected alleys into clean, safe passages for residents.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧱</div>
+                <h3>Blocked Pavements</h3>
+                <p>Removing obstructions and overgrowth that block pedestrian access.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌉</div>
+                <h3>Footpath Bridges</h3>
+                <p>Maintaining and cleaning bridges along walking routes and trails.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌿</div>
+                <h3>Other Public Areas</h3>
+                <p>Any public space that needs attention - just nominate it!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLETED JOBS SECTION -->
+    <section class="completed" id="completed">
+        <h2 class="section-title">Completed Jobs</h2>
+        <p class="section-subtitle">Watch our transformations and see the difference we're making in the community.</p>
+        
+        <div class="completed-intro">
+            <p>We document every clean-up job and share the full process on our YouTube channel. Subscribe to see more transformations!</p>
+            <a href="https://www.youtube.com/@fabgardens" target="_blank" class="youtube-link">
+                <span>▶</span> Visit Our YouTube Channel
+            </a>
+        </div>
+
+        <div class="jobs-grid">
+            <!-- JOB CARD 1 - Example with placeholder -->
+            <div class="job-card">
+                <div class="job-placeholder">
+                    <span class="job-placeholder-icon">📹</span>
+                    <span>Video Coming Soon</span>
+                </div>
+                <div class="job-details">
+                    <h3>Example Job - Main Street Footpath</h3>
+                    <p>Cleared overgrown vegetation blocking a popular walking route. Residents can now walk safely.</p>
+                    <span class="job-status status-completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- JOB CARD 2 - Example -->
+            <div class="job-card">
+                <div class="job-placeholder">
+                    <span class="job-placeholder-icon">📹</span>
+                    <span>Video Coming Soon</span>
+                </div>
+                <div class="job-details">
+                    <h3>Example Job - Park Lane Alley</h3>
+                    <p>Transformed a neglected alley into a clean, welcoming passage for the community.</p>
+                    <span class="job-status status-completed">✓ Completed</span>
+                </div>
+            </div>
+
+            <!-- JOB CARD 3 - Example In Progress -->
+            <div class="job-card">
+                <div class="job-placeholder">
+                    <span class="job-placeholder-icon">🎬</span>
+                    <span>Currently Filming</span>
+                </div>
+                <div class="job-details">
+                    <h3>Example Job - Bridge Walkway</h3>
+                    <p>Working on clearing this footpath bridge - video will be posted when complete!</p>
+                    <span class="job-status status-progress">⏳ In Progress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">The nomination process is simple and helps us prioritise areas in need.</p>
+        
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>You Nominate</h3>
+                <p>Fill out our form with details and photos of an area that needs cleaning.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>We Assess</h3>
+                <p>Our team reviews the nomination and plans the clean-up operation.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>We Clean</h3>
+                <p>We carry out the work, documenting the entire process on camera.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>We Share</h3>
+                <p>The transformation video is posted to YouTube for everyone to see!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOMINATION FORM SECTION -->
+    <section class="nominate" id="nominate">
+        <h2 class="section-title">Nominate an Area</h2>
+        <p class="section-subtitle">Know a public space that needs cleaning? Tell us about it!</p>
+        
+        <div class="form-container">
+            <div class="form-intro">
+                <h3>📝 Nomination Form</h3>
+                <p>Please provide as much detail as possible to help us understand the area and what work is needed.</p>
+            </div>
+
+            <!-- The actual form -->
+            <form id="nominationForm" action="https://formspree.io/f/xqearnwz" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="nominatorName">Your Name <span class="required">*</span></label>
+                    <input type="text" id="nominatorName" name="nominatorName" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="nominatorEmail">Your Email <span class="required">*</span></label>
+                    <input type="email" id="nominatorEmail" name="nominatorEmail" required placeholder="Enter your email address">
+                    <small>We'll only use this to update you about the nomination status.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="areaType">Type of Area <span class="required">*</span></label>
+                    <select id="areaType" name="areaType" required>
+                        <option value="">-- Select the type of area --</option>
+                        <option value="Footpath">Footpath</option>
+                        <option value="Corridor">Corridor</option>
+                        <option value="Alley">Alley</option>
+                        <option value="Blocked Pavement">Blocked Pavement</option>
+                        <option value="Footpath Bridge">Footpath Bridge</option>
+                        <option value="Public Garden/Green Space">Public Garden/Green Space</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="areaLocation">Location/Address <span class="required">*</span></label>
+                    <input type="text" id="areaLocation" name="areaLocation" required placeholder="Street name, postcode, or nearest landmark">
+                    <small>Please be as specific as possible so we can find the area.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="areaDescription">Description of the Problem <span class="required">*</span></label>
+                    <textarea id="areaDescription" name="areaDescription" required placeholder="Please describe what needs cleaning. For example: overgrown bushes blocking the path, litter accumulation, moss on surfaces, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalInfo">Additional Information</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other details that might be helpful? Access issues, best time to visit, safety concerns, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Photo(s) of the Area <span class="required">*</span></label>
+                    <div class="file-upload" id="fileUploadArea">
+                        <div class="file-upload-icon">📸</div>
+                        <div class="file-upload-text">
+                            <strong>Click to upload</strong> or drag and drop<br>
+                            <small>PNG, JPG or JPEG (max 5MB each)</small>
+                        </div>
+                        <input type="file" id="areaPhotos" name="areaPhotos" accept="image/*" multiple required>
+                    </div>
+                    <div class="file-preview" id="filePreview"></div>
+                    <small>Please upload at least one clear photo showing the area that needs cleaning.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="consent" required>
+                        I understand that Fab Gardens <strong>does not accept volunteers</strong> and this is a nomination only. I consent to being contacted about this nomination.
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Submit Nomination
+                    <span class="loader" id="submitLoader"></span>
+                </button>
+            </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div class="form-success" id="formSuccess">
+                <div class="success-icon">✅</div>
+                <h3>Thank You!</h3>
+                <p>Your nomination has been received. We'll review it and be in touch if we need any additional information.</p>
+                <p>Don't forget to subscribe to our <a href="https://www.youtube.com/@fabgardens" target="_blank">YouTube channel</a> to see when your nominated area gets cleaned!</p>
+                <br>
+                <button class="btn btn-primary" onclick="resetForm()">Submit Another Nomination</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>🌿</span> Fab Gardens
+            </div>
+            <p class="footer-tagline">Cleaning our community, one area at a time.</p>
+            
+            <div class="social-links">
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" title="YouTube">▶</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Fab Gardens Community Project. All rights reserved.</p>
+                <p style="margin-top: 10px;">We do not accept volunteers due to insurance requirements.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // File Upload Preview
+        const fileInput = document.getElementById('areaPhotos');
+        const filePreview = document.getElementById('filePreview');
+
+        fileInput.addEventListener('change', function() {
+            filePreview.innerHTML = '';
+            const files = this.files;
+
+            for (let i = 0; i < files.length; i++) {
+                if (files[i].type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewItem = document.createElement('div');
+                        previewItem.className = 'preview-item';
+                        previewItem.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                        filePreview.appendChild(previewItem);
+                    };
+                    reader.readAsDataURL(files[i]);
+                }
+            }
+        });
+
+        // Form Submission (you'll need to set up Formspree or similar)
+        const form = document.getElementById('nominationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitLoader = document.getElementById('submitLoader');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitLoader.style.display = 'inline-block';
+
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Hide form, show success message
+                    form.style.display = 'none';
+                    document.querySelector('.form-intro').style.display = 'none';
+                    formSuccess.classList.add('show');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('There was a problem submitting the form. Please try again or contact us directly.');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitLoader.style.display = 'none';
+            }
+        });
+
+        // Reset form function
+        function resetForm() {
+            form.reset();
+            filePreview.innerHTML = '';
+            form.style.display = 'block';
+            document.querySelector('.form-intro').style.display = 'block';
+            formSuccess.classList.remove('show');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
