@@ -1,1 +1,464 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Fab Gardens</title>
+    <meta name="description" content="Privacy Policy for Fab Gardens community project website.">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4920503378652952"
+         crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --garden-green: #3D7A5A;
+            --garden-green-dark: #2d5a42;
+            --clean-space: #FAF9F6;
+            --pathway: #C9B896;
+            --soft-black: #2C2C2C;
+            --light-text: #5a5a5a;
+            --white: #ffffff;
+            --glass-white: rgba(255, 255, 255, 0.85);
+            --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--soft-black);
+            background-color: var(--clean-space);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--garden-green);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 45px;
+            width: auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--garden-green);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 25px;
+            background: rgba(61, 122, 90, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--garden-green);
+            color: var(--white);
+        }
+
+        /* Main Content */
+        .page-header {
+            background: linear-gradient(135deg, var(--garden-green), var(--garden-green-dark));
+            padding: 160px 5% 80px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: -40px auto 80px;
+            padding: 60px;
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .last-updated {
+            background: rgba(61, 122, 90, 0.1);
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            color: var(--garden-green);
+        }
+
+        .last-updated i {
+            margin-right: 10px;
+        }
+
+        h2 {
+            color: var(--garden-green);
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(61, 122, 90, 0.2);
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--soft-black);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        ul {
+            margin: 15px 0 20px 25px;
+            color: var(--light-text);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--garden-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201, 184, 150, 0.2), rgba(201, 184, 150, 0.1));
+            padding: 25px;
+            border-radius: 16px;
+            margin: 25px 0;
+            border-left: 4px solid var(--pathway);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--soft-black);
+        }
+
+        .contact-box {
+            background: var(--garden-green);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-box a {
+            color: var(--pathway);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--garden-green);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 5% 30px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo-img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 15px;
+        }
+
+        .footer-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 95%;
+                padding: 12px 20px;
+                top: 10px;
+                border-radius: 20px;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .page-header {
+                padding: 140px 5% 60px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-container {
+                margin: -30px 15px 60px;
+                padding: 35px 25px;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Fab Gardens Logo" class="logo-image">
+            <span>Fab Gardens</span>
+        </a>
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Privacy Policy</h1>
+        <p>How we collect, use, and protect your information</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-container">
+        
+        <div class="last-updated">
+            <i class="fas fa-calendar-alt"></i>
+            <strong>Last Updated:</strong> January 2025
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>Welcome to Fab Gardens ("we," "our," or "us"). We are committed to protecting your privacy and ensuring that your personal information is handled safely and responsibly.</p>
+        <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://fabgardens.uk">fabgardens.uk</a> and use our services.</p>
+        <p>Fab Gardens is a community project founded by Fabio Zacarias, dedicated to restoring neglected public footpaths, pavements, and walkways across Surrey, UK.</p>
+
+        <h2>2. Information We Collect</h2>
+        
+        <h3>2.1 Information You Provide</h3>
+        <p>We may collect information that you voluntarily provide when you:</p>
+        <ul>
+            <li>Submit a nomination through our Google Form</li>
+            <li>Contact us via email or WhatsApp</li>
+            <li>Subscribe to any updates or newsletters</li>
+        </ul>
+        <p>This information may include:</p>
+        <ul>
+            <li>Your name</li>
+            <li>Email address</li>
+            <li>Phone number (if provided)</li>
+            <li>Location details of nominated areas</li>
+            <li>Photographs you submit</li>
+            <li>Any additional information you choose to provide</li>
+        </ul>
+
+        <h3>2.2 Information Collected Automatically</h3>
+        <p>When you visit our website, certain information may be collected automatically, including:</p>
+        <ul>
+            <li>IP address</li>
+            <li>Browser type and version</li>
+            <li>Operating system</li>
+            <li>Pages visited and time spent on pages</li>
+            <li>Referring website addresses</li>
+            <li>Device information</li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Process and respond to your nominations</li>
+            <li>Contact you about nominated areas</li>
+            <li>Improve our website and services</li>
+            <li>Send updates about completed projects (if requested)</li>
+            <li>Comply with legal obligations</li>
+            <li>Analyze website usage to improve user experience</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>Important:</strong> We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+        </div>
+
+        <h2>4. Cookies and Tracking Technologies</h2>
+        <p>Our website may use cookies and similar tracking technologies to enhance your browsing experience.</p>
+        
+        <h3>4.1 What Are Cookies?</h3>
+        <p>Cookies are small text files stored on your device when you visit a website. They help the website remember your preferences and understand how you use the site.</p>
+
+        <h3>4.2 Types of Cookies We Use</h3>
+        <ul>
+            <li><strong>Essential Cookies:</strong> Necessary for the website to function properly</li>
+            <li><strong>Analytics Cookies:</strong> Help us understand how visitors use our website</li>
+            <li><strong>Advertising Cookies:</strong> Used by Google AdSense to display relevant advertisements</li>
+        </ul>
+
+        <h3>4.3 Google AdSense</h3>
+        <p>We use Google AdSense to display advertisements on our website. Google AdSense may use cookies to serve ads based on your prior visits to our website or other websites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a>.</p>
+        <p>For more information about how Google uses data, please visit <a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google's Privacy & Terms</a>.</p>
+
+        <h3>4.4 Managing Cookies</h3>
+        <p>You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website.</p>
+
+        <h2>5. Third-Party Services</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+            <li><strong>Google Forms:</strong> To collect nominations (governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>)</li>
+            <li><strong>Google AdSense:</strong> To display advertisements</li>
+            <li><strong>YouTube:</strong> To embed videos (governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>)</li>
+            <li><strong>GitHub Pages:</strong> To host our website (governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">GitHub's Privacy Statement</a>)</li>
+        </ul>
+
+        <h2>6. Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h2>7. Your Rights (GDPR)</h2>
+        <p>If you are located in the United Kingdom or European Economic Area, you have certain rights under data protection laws, including:</p>
+        <ul>
+            <li><strong>Right of Access:</strong> Request a copy of your personal data</li>
+            <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
+            <li><strong>Right to Erasure:</strong> Request deletion of your personal data</li>
+            <li><strong>Right to Restrict Processing:</strong> Request limitation of how we use your data</li>
+            <li><strong>Right to Data Portability:</strong> Request transfer of your data</li>
+            <li><strong>Right to Object:</strong> Object to our processing of your data</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us using the details provided below.</p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>Our website is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.</p>
+
+        <h2>9. Links to Other Websites</h2>
+        <p>Our website may contain links to third-party websites, including our social media profiles on YouTube, Facebook, Instagram, and TikTok. We are not responsible for the privacy practices of these external sites. We encourage you to read their privacy policies.</p>
+
+        <h2>10. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. The updated version will be indicated by the "Last Updated" date at the top of this page. We encourage you to review this Privacy Policy periodically for any changes.</p>
+
+        <h2>11. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+        
+        <div class="contact-box">
+            <h3>Fab Gardens</h3>
+            <p><strong>Founder:</strong> Fabio Zacarias</p>
+            <p><strong>Email:</strong> <a href="mailto:fabgardens81@gmail.com">fabgardens81@gmail.com</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/447915270957">+44 7915 270957</a></p>
+            <p><strong>Website:</strong> <a href="https://fabgardens.uk">fabgardens.uk</a></p>
+            <p><strong>Location:</strong> Surrey, United Kingdom</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="logo.png" alt="Fab Gardens" class="footer-logo-img">
+            <p class="footer-name">Fab Gardens</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#nominate">Nominate</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Fab Gardens Community Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
