@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work Map - Fab Gardens | Completed Jobs Across Surrey</title>
+    <meta name="description" content="Explore all the public footpaths and pavements Fab Gardens has restored across Surrey. Interactive map showing our community clean-up projects.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4920503378652952"
+         crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --garden-green: #3D7A5A;
+            --garden-green-dark: #2d5a42;
+            --garden-green-light: #4a8d6a;
+            --clean-space: #FAF9F6;
+            --pathway: #C9B896;
+            --pathway-dark: #b8a580;
+            --soft-black: #2C2C2C;
+            --light-text: #5a5a5a;
+            --white: #ffffff;
+            --glass-white: rgba(255, 255, 255, 0.85);
+            --glass-white-strong: rgba(255, 255, 255, 0.95);
+            --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--soft-black);
+            background-color: var(--clean-space);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: var(--glass-white-strong);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--garden-green);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: var(--soft-black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--garden-green);
+            color: var(--white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--garden-green);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--garden-green), var(--garden-green-dark));
+            padding: 140px 5% 60px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-badge strong {
+            font-size: 1.5rem;
+            color: var(--pathway);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            position: relative;
+        }
+
+        .map-container {
+            height: 600px;
+            width: 100%;
+            position: relative;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Map Legend */
+        .map-legend {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: var(--glass-white-strong);
+            backdrop-filter: blur(20px);
+            padding: 20px 25px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+            z-index: 500;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .map-legend h4 {
+            color: var(--garden-green);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.completed {
+            background: var(--garden-green);
+        }
+
+        .legend-dot.in-progress {
+            background: var(--pathway);
+        }
+
+        /* Custom Map Markers */
+        .custom-marker {
+            background: var(--garden-green);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 14px;
+            box-shadow: var(--shadow-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-marker:hover {
+            transform: scale(1.2);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .custom-marker.in-progress {
+            background: var(--pathway);
+            color: var(--soft-black);
+        }
+
+        /* Map Popup */
+        .leaflet-popup-content-wrapper {
+            border-radius: 16px;
+            box-shadow: var(--shadow-strong);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .leaflet-popup-content {
+            margin: 0;
+            min-width: 280px;
+        }
+
+        .popup-content {
+            padding: 0;
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .popup-body {
+            padding: 20px;
+        }
+
+        .popup-body h3 {
+            color: var(--garden-green);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .popup-body p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .popup-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .popup-status.completed {
+            background: rgba(61, 122, 90, 0.15);
+            color: var(--garden-green);
+        }
+
+        .popup-status.in-progress {
+            background: rgba(201, 184, 150, 0.3);
+            color: var(--pathway-dark);
+        }
+
+        .popup-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .popup-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .popup-btn.primary {
+            background: var(--garden-green);
+            color: var(--white);
+        }
+
+        .popup-btn.primary:hover {
+            background: var(--garden-green-dark);
+        }
+
+        .popup-btn.secondary {
+            background: rgba(61, 122, 90, 0.1);
+            color: var(--garden-green);
+        }
+
+        .popup-btn.secondary:hover {
+            background: rgba(61, 122, 90, 0.2);
+        }
+
+        /* Jobs List Section */
+        .jobs-list-section {
+            padding: 80px 5%;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--garden-green);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            background: var(--clean-space);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .job-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .job-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .job-card:hover .job-card-image img {
+            transform: scale(1.05);
+        }
+
+        .job-card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+        }
+
+        .job-card-badge.completed {
+            color: var(--garden-green);
+        }
+
+        .job-card-badge.in-progress {
+            color: var(--pathway-dark);
+        }
+
+        .job-card-body {
+            padding: 25px;
+        }
+
+        .job-card-body h3 {
+            color: var(--garden-green);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .job-card-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .job-card-body p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .job-card-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .job-card-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .job-card-btn.youtube {
+            background: #ff0000;
+            color: var(--white);
+        }
+
+        .job-card-btn.youtube:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .job-card-btn.details {
+            background: var(--garden-green);
+            color: var(--white);
+        }
+
+        .job-card-btn.details:hover {
+            background: var(--garden-green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--garden-green), var(--garden-green-dark));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            color: var(--pathway);
+        }
+
+        .newsletter-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            background: var(--white);
+            color: var(--soft-black);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--light-text);
+        }
+
+        .newsletter-btn {
+            padding: 18px 35px;
+            background: var(--pathway);
+            color: var(--soft-black);
+            border: none;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .newsletter-btn:hover {
+            background: var(--pathway-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .newsletter-note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Community Posts Section */
+        .community-section {
+            padding: 80px 5%;
+            background: var(--clean-space);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .post-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .post-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .post-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .post-body {
+            padding: 25px;
+        }
+
+        .post-date {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--light-text);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .post-body h3 {
+            color: var(--garden-green);
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .post-body p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .post-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(61, 122, 90, 0.1);
+            color: var(--garden-green);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--garden-green);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo-img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 15px;
+        }
+
+        .footer-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--pathway);
+            color: var(--soft-black);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer-bottom a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 95%;
+                padding: 12px 20px;
+                top: 10px;
+                border-radius: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 15px);
+                left: 0;
+                right: 0;
+                background: var(--glass-white-strong);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 25px;
+                gap: 8px;
+                border-radius: 20px;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .map-container {
+                height: 450px;
+            }
+
+            .map-legend {
+                bottom: 15px;
+                left: 15px;
+                right: 15px;
+                padding: 15px;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Fab Gardens Logo" class="logo-image">
+            <span>Fab Gardens</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="map.html">Our Work Map</a></li>
+            <li><a href="index.html#nominate">Nominate</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>🗺️ Our Work Across Surrey</h1>
+        <p>Explore every footpath, pavement, and public space we've restored. Click on any pin to learn more.</p>
+        
+        <div class="stats-row">
+            <div class="stat-badge">
+                <strong>14</strong> Jobs Completed
+            </div>
+            <div class="stat-badge">
+                <strong>20+</strong> Miles Coverage
+            </div>
+            <div class="stat-badge">
+                <strong>3</strong> Towns Served
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Map -->
+    <section class="map-section">
+        <div class="map-container">
+            <div id="map"></div>
+            
+            <div class="map-legend">
+                <h4>Map Legend</h4>
+                <div class="legend-item">
+                    <div class="legend-dot completed"></div>
+                    <span>Completed Jobs</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot in-progress"></div>
+                    <span>In Progress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Jobs List -->
+    <section class="jobs-list-section">
+        <h2 class="section-title">All Completed Projects</h2>
+        <p class="section-subtitle">Every job documented with full risk assessments and transformation videos.</p>
+        
+        <div class="jobs-grid">
+            
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg" alt="Ashtead Village Public Footpath">
+                    <span class="job-card-badge completed">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Ashtead Village Public Footpath</h3>
+                    <div class="job-card-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Ashtead, Surrey
+                    </div>
+                    <p>Complete transformation of a neglected public footpath. Cleared dangerous overgrowth blocking the path.</p>
+                    <div class="job-card-links">
+                        <a href="https://www.youtube.com/watch?v=5UyBhb6Xouk" target="_blank" class="job-card-btn youtube">
+                            <i class="fab fa-youtube"></i> Watch Video
+                        </a>
+                        <a href="job-ashtead-footpath.html" class="job-card-btn details">
+                            <i class="fas fa-file-alt"></i> Full Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg" alt="School Pavement Ashtead">
+                    <span class="job-card-badge completed">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Pavement on School in Ashtead</h3>
+                    <div class="job-card-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Ashtead, Surrey
+                    </div>
+                    <p>Cleared and restored the pavement near a local school where overgrowth was pushing pedestrians into the road.</p>
+                    <div class="job-card-links">
+                        <a href="https://www.youtube.com/watch?v=LktubbvPEdo" target="_blank" class="job-card-btn youtube">
+                            <i class="fab fa-youtube"></i> Watch Video
+                        </a>
+                        <a href="job-school-pavement.html" class="job-card-btn details">
+                            <i class="fas fa-file-alt"></i> Full Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg" alt="Leatherhead Village Footpath">
+                    <span class="job-card-badge completed">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Leatherhead Village Public Footpath</h3>
+                    <div class="job-card-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Leatherhead, Surrey
+                    </div>
+                    <p>Restored a dangerously neglected public footpath. Full clean-up including vegetation clearance and hazard removal.</p>
+                    <div class="job-card-links">
+                        <a href="https://www.youtube.com/watch?v=FZtG8AQTFLE" target="_blank" class="job-card-btn youtube">
+                            <i class="fab fa-youtube"></i> Watch Video
+                        </a>
+                        <a href="job-leatherhead-footpath.html" class="job-card-btn details">
+                            <i class="fas fa-file-alt"></i> Full Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <div class="newsletter-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h2>Stay Updated</h2>
+            <p>Join our community newsletter to receive updates on new projects, before-and-after transformations, and ways to nominate areas in your neighbourhood.</p>
+            
+            <form class="newsletter-form" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
+                <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            
+            <p class="newsletter-note">
+                <i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- Community Posts Section -->
+    <section class="community-section">
+        <h2 class="section-title">Community Updates</h2>
+        <p class="section-subtitle">Latest news, upcoming projects, and highlights from our work across Surrey.</p>
+        
+        <div class="posts-grid">
+            
+            <!-- Post 1 -->
+            <div class="post-card">
+                <div class="post-image">
+                    <img src="https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg" alt="Before and After">
+                </div>
+                <div class="post-body">
+                    <div class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        January 2025
+                    </div>
+                    <h3>Ashtead Footpath Transformation Complete!</h3>
+                    <p>What was once an impassable, overgrown path is now a safe walkway for families and residents. Watch the full video to see the transformation.</p>
+                    <span class="post-tag">Completed</span>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post-card">
+                <div class="post-image">
+                    <img src="https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg" alt="School Pavement">
+                </div>
+                <div class="post-body">
+                    <div class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        December 2024
+                    </div>
+                    <h3>Making School Routes Safer</h3>
+                    <p>Children and families can now walk safely to school without being pushed into traffic by overgrown vegetation.</p>
+                    <span class="post-tag">Child Safety</span>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="post-card">
+                <div class="post-image">
+                    <img src="https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg" alt="Leatherhead Footpath">
+                </div>
+                <div class="post-body">
+                    <div class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        November 2024
+                    </div>
+                    <h3>Leatherhead Community Thanks Fab Gardens</h3>
+                    <p>Local residents express gratitude as their daily walking route is restored to safe condition.</p>
+                    <span class="post-tag">Community</span>
+                </div>
+            </div>
+
+            <!-- Post 4 - Upcoming -->
+            <div class="post-card">
+                <div class="post-image">
+                    <img src="logo.png" alt="Coming Soon" style="object-fit: contain; background: #f0f0f0; padding: 40px;">
+                </div>
+                <div class="post-body">
+                    <div class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        Coming Soon
+                    </div>
+                    <h3>New Nominations Being Reviewed</h3>
+                    <p>We've received several new nominations and are currently assessing which areas need our help most urgently.</p>
+                    <span class="post-tag">Upcoming</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="logo.png" alt="Fab Gardens" class="footer-logo-img">
+            <p class="footer-name">Fab Gardens</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="map.html">Our Work</a>
+                <a href="index.html#nominate">Nominate</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61567816940801" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/fab_gardens" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@fab.gardens" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/447915270957" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Fab Gardens Community Project. All rights reserved.</p>
+                <p style="margin-top: 10px;"><a href="privacy.html">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Initialize the map centered on Surrey
+        var map = L.map('map').setView([51.3181, -0.3085], 12);
+
+        // Add map tiles (using OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Custom icon for completed jobs
+        var completedIcon = L.divIcon({
+            className: 'custom-marker-wrapper',
+            html: '<div class="custom-marker"><i class="fas fa-check"></i></div>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15],
+            popupAnchor: [0, -15]
+        });
+
+        // Custom icon for in-progress jobs
+        var inProgressIcon = L.divIcon({
+            className: 'custom-marker-wrapper',
+            html: '<div class="custom-marker in-progress"><i class="fas fa-clock"></i></div>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15],
+            popupAnchor: [0, -15]
+        });
+
+        // Job locations data
+        var jobs = [
+            {
+                lat: 51.3181,
+                lng: -0.3085,
+                title: "Ashtead Village Public Footpath",
+                description: "Complete transformation of a neglected public footpath in Ashtead Village.",
+                status: "completed",
+                youtube: "https://www.youtube.com/watch?v=5UyBhb6Xouk",
+                details: "job-ashtead-footpath.html",
+                image: "https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg"
+            },
+            {
+                lat: 51.3220,
+                lng: -0.3150,
+                title: "Pavement on School in Ashtead",
+                description: "Cleared pavement near a school where overgrowth was pushing pedestrians into traffic.",
+                status: "completed",
+                youtube: "https://www.youtube.com/watch?v=LktubbvPEdo",
+                details: "job-school-pavement.html",
+                image: "https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg"
+            },
+            {
+                lat: 51.2960,
+                lng: -0.3290,
+                title: "Leatherhead Village Public Footpath",
+                description: "Restored a dangerously neglected public footpath in Leatherhead Village.",
+                status: "completed",
+                youtube: "https://www.youtube.com/watch?v=FZtG8AQTFLE",
+                details: "job-leatherhead-footpath.html",
+                image: "https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg"
+            }
+        ];
+
+        // Add markers to map
+        jobs.forEach(function(job) {
+            var icon = job.status === 'completed' ? completedIcon : inProgressIcon;
+            var statusClass = job.status === 'completed' ? 'completed' : 'in-progress';
+            var statusText = job.status === 'completed' ? '✓ Completed' : '⏳ In Progress';
+            
+            var popupContent = `
+                <div class="popup-content">
+                    <img src="${job.image}" alt="${job.title}" class="popup-image">
+                    <div class="popup-body">
+                        <h3>${job.title}</h3>
+                        <span class="popup-status ${statusClass}">${statusText}</span>
+                        <p>${job.description}</p>
+                        <div class="popup-links">
+                            <a href="${job.youtube}" target="_blank" class="popup-btn primary">
+                                <i class="fab fa-youtube"></i> Watch
+                            </a>
+                            <a href="${job.details}" class="popup-btn secondary">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            L.marker([job.lat, job.lng], {icon: icon})
+                .addTo(map)
+                .bindPopup(popupContent, {maxWidth: 320});
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            var nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+            this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+    </script>
+
+    <style>
+        /* Custom marker styles that need to be in body for Leaflet */
+        .custom-marker-wrapper {
+            background: none;
+            border: none;
+        }
+        .custom-marker {
+            background: var(--garden-green);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .custom-marker:hover {
+            transform: scale(1.2);
+        }
+        .custom-marker.in-progress {
+            background: #C9B896;
+            color: #2C2C2C;
+        }
+    </style>
+
+</body>
+</html>
