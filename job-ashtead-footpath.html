@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashtead Village Footpath - Job Details | Fab Gardens</title>
+    <meta name="description" content="Full details, risk assessment, and transformation video for the Ashtead Village Public Footpath restoration by Fab Gardens.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4920503378652952"
+         crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --garden-green: #3D7A5A;
+            --garden-green-dark: #2d5a42;
+            --clean-space: #FAF9F6;
+            --pathway: #C9B896;
+            --pathway-dark: #b8a580;
+            --soft-black: #2C2C2C;
+            --light-text: #5a5a5a;
+            --white: #ffffff;
+            --glass-white: rgba(255, 255, 255, 0.85);
+            --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'Nunito Sans', 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--soft-black);
+            background-color: var(--clean-space);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-radius: 100px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--garden-green);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 45px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 25px;
+            background: var(--garden-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--garden-green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .job-hero {
+            padding: 140px 5% 60px;
+            background: linear-gradient(135deg, var(--garden-green), var(--garden-green-dark));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .job-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .job-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        /* Content */
+        .job-content {
+            max-width: 1000px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        h2 {
+            color: var(--garden-green);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3 {
+            color: var(--soft-black);
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        /* Risk Assessment */
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .risk-table th,
+        .risk-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .risk-table th {
+            background: var(--clean-space);
+            color: var(--garden-green);
+            font-weight: 600;
+        }
+
+        .risk-level {
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .risk-level.high {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .risk-level.medium {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .risk-level.low {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .risk-level.controlled {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        /* Safety Outcome */
+        .safety-outcome {
+            background: linear-gradient(135deg, rgba(61, 122, 90, 0.1), rgba(61, 122, 90, 0.05));
+            padding: 25px 30px;
+            border-radius: 16px;
+            border-left: 4px solid var(--garden-green);
+            margin: 30px 0;
+        }
+
+        .safety-outcome h3 {
+            color: var(--garden-green);
+            margin-top: 0;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--garden-green);
+            color: var(--white);
+            padding: 50px;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            justify-content: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn.primary {
+            background: var(--white);
+            color: var(--garden-green);
+        }
+
+        .cta-btn.secondary {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--garden-green);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+        }
+
+        .footer a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                width: 95%;
+                padding: 12px 20px;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .job-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            .risk-table {
+                font-size: 0.85rem;
+            }
+
+            .risk-table th,
+            .risk-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Fab Gardens" class="logo-image">
+            <span>Fab Gardens</span>
+        </a>
+        <a href="map.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Map
+        </a>
+    </nav>
+
+    <!-- Job Hero -->
+    <header class="job-hero">
+        <h1>🌻 Ashtead Village Public Footpath</h1>
+        <p>Complete restoration of a neglected public footpath</p>
+        
+        <div class="job-meta">
+            <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                Ashtead, Surrey
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-calendar"></i>
+                January 2025
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-check-circle"></i>
+                Completed
+            </div>
+        </div>
+    </header>
+
+    <!-- Job Content -->
+    <div class="job-content">
+        
+        <!-- Video -->
+        <div class="content-card">
+            <h2><i class="fab fa-youtube"></i> Transformation Video</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/5UyBhb6Xouk" 
+                    title="Ashtead Village Public Footpath Transformation"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+            <p>This public footpath in Ashtead Village had become dangerously overgrown, forcing pedestrians to either walk in the road or avoid the route entirely. The vegetation had encroached significantly onto the pathway, creating hazards for walkers, families, and especially those with mobility challenges.</p>
+            <p>Fab Gardens was nominated to restore this vital community walkway, documenting the entire process to raise awareness about the importance of maintaining our public rights of way.</p>
+        </div>
+
+        <!-- Risk Assessment -->
+        <div class="content-card">
+            <h2><i class="fas fa-shield-alt"></i> Risk Assessment</h2>
+            <p>Before undertaking any work, a thorough risk assessment was conducted to ensure safety throughout the project.</p>
+            
+            <h3>Identified Hazards</h3>
+            <table class="risk-table">
+                <thead>
+                    <tr>
+                        <th>Hazard</th>
+                        <th>Risk Level</th>
+                        <th>Control Measures</th>
+                        <th>Residual Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sharp tools (secateurs, loppers)</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>PPE gloves, proper handling, secure storage</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hidden debris/sharp objects</td>
+                        <td><span class="risk-level high">High</span></td>
+                        <td>Protective footwear, careful clearance, visual inspection</td>
+                        <td><span class="risk-level controlled">Controlled</span></td>
+                    </tr>
+                    <tr>
+                        <td>Thorny vegetation (brambles)</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>Long sleeves, thick gloves, eye protection</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Uneven ground/trip hazards</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>Sturdy boots, careful movement, clear as you go</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Passing traffic (adjacent road)</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>High-vis clothing, awareness, work away from road edge</td>
+                        <td><span class="risk-level controlled">Controlled</span></td>
+                    </tr>
+                    <tr>
+                        <td>Manual handling strain</td>
+                        <td><span class="risk-level low">Low</span></td>
+                        <td>Regular breaks, proper lifting technique</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>PPE Used</h3>
+            <ul style="color: var(--light-text); margin-left: 25px;">
+                <li>Safety gloves (cut-resistant)</li>
+                <li>Safety boots (steel toe cap)</li>
+                <li>High-visibility vest</li>
+                <li>Safety glasses</li>
+                <li>Long-sleeved clothing</li>
+            </ul>
+
+            <h3>Emergency Procedures</h3>
+            <p>First aid kit on site. Emergency contact numbers recorded. Nearest A&E: Epsom Hospital (15 minutes). Mobile phone fully charged for emergencies.</p>
+        </div>
+
+        <!-- Safety Outcome -->
+        <div class="content-card">
+            <div class="safety-outcome">
+                <h3><i class="fas fa-check-circle"></i> Safety Outcome</h3>
+                <p>This footpath is now fully accessible and safe for all pedestrians. Families with pushchairs, elderly residents, and dog walkers can now use this route without being forced into the road. The community has regained a vital walking connection.</p>
+            </div>
+
+            <h2><i class="fas fa-users"></i> Community Impact</h2>
+            <p>This restoration directly benefits:</p>
+            <ul style="color: var(--light-text); margin-left: 25px;">
+                <li>Local residents using the footpath daily</li>
+                <li>Families with young children and pushchairs</li>
+                <li>Elderly residents who rely on safe walking routes</li>
+                <li>Dog walkers in the area</li>
+                <li>Anyone with mobility challenges who needs clear pathways</li>
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Know Another Area That Needs Help?</h2>
+            <p>We rely on community nominations to find neglected paths across Surrey.</p>
+            <div class="cta-buttons">
+                <a href="index.html#nominate" class="cta-btn primary">
+                    <i class="fas fa-clipboard-list"></i>
+                    Nominate an Area
+                </a>
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="cta-btn secondary">
+                    <i class="fab fa-youtube"></i>
+                    Watch More Videos
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Fab Gardens Community Project</p>
+        <p style="margin-top: 15px;">
+            <a href="index.html">Home</a>
+            <a href="map.html">Our Work</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+</body>
+</html>
