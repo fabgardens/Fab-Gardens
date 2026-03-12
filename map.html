@@ -1097,7 +1097,7 @@
     
     <script>
         // Initialize the map centered on Surrey
-        var map = L.map('map').setView([51.3181, -0.3085], 12);
+var map = L.map('map').setView([51.3070, -0.3050], 13);
 
         // Add map tiles (using OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1122,39 +1122,27 @@
             popupAnchor: [0, -15]
         });
 
-        // Job locations data
-        var jobs = [
-            {
-                lat: 51.3181,
-                lng: -0.3085,
-                title: "Ashtead Village Public Footpath",
-                description: "Complete transformation of a neglected public footpath in Ashtead Village.",
-                status: "completed",
-                youtube: "https://www.youtube.com/watch?v=5UyBhb6Xouk",
-                details: "job-ashtead-footpath.html",
-                image: "https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg"
-            },
-            {
-                lat: 51.3220,
-                lng: -0.3150,
-                title: "Pavement on School in Ashtead",
-                description: "Cleared pavement near a school where overgrowth was pushing pedestrians into traffic.",
-                status: "completed",
-                youtube: "https://www.youtube.com/watch?v=LktubbvPEdo",
-                details: "job-school-pavement.html",
-                image: "https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg"
-            },
-            {
-                lat: 51.2960,
-                lng: -0.3290,
-                title: "Leatherhead Village Public Footpath",
-                description: "Restored a dangerously neglected public footpath in Leatherhead Village.",
-                status: "completed",
-                youtube: "https://www.youtube.com/watch?v=FZtG8AQTFLE",
-                details: "job-leatherhead-footpath.html",
-                image: "https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg"
-            }
-        ];
+// Job locations - EXACT COORDINATES
+var jobs = [
+    {
+        lat: 51.3103,
+        lng: -0.2963,
+        title: "Ashtead Village Public Footpath",
+        video: "https://www.youtube.com/watch?v=5UyBhb6Xouk"
+    },
+    {
+        lat: 51.3095,
+        lng: -0.2939,
+        title: "Pavement on School in Ashtead",
+        video: "https://www.youtube.com/watch?v=LktubbvPEdo"
+    },
+    {
+        lat: 51.3017,
+        lng: -0.3257,
+        title: "Leatherhead Village Footpath",
+        video: "https://www.youtube.com/watch?v=FZtG8AQTFLE"
+    }
+];
 
         // Add markers to map
         jobs.forEach(function(job) {
