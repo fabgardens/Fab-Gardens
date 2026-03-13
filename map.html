@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work Map - Fab Gardens</title>
-    <meta name="description" content="Explore all the public footpaths and pavements Fab Gardens has restored across Surrey. Interactive map showing our community clean-up projects.">
+    <title>Our Work Map - Fab Gardens | 17+ Jobs Across Surrey</title>
+    <meta name="description" content="Explore all 17+ public footpaths and pavements Fab Gardens has restored across Surrey. Interactive map with videos and locations.">
     
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -58,15 +58,16 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 25px;
             transition: background 0.3s;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -106,14 +107,14 @@
         .stats-row {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             margin-top: 30px;
             flex-wrap: wrap;
         }
 
         .stat-badge {
             background: rgba(255,255,255,0.15);
-            padding: 12px 25px;
+            padding: 12px 22px;
             border-radius: 50px;
             font-weight: 600;
         }
@@ -201,18 +202,28 @@
 
         .popup-title {
             color: #3D7A5A;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .popup-location {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .popup-status {
             display: inline-block;
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .popup-status.completed {
@@ -227,9 +238,13 @@
 
         .popup-description {
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .popup-btn {
@@ -238,13 +253,13 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background: #ff0000;
             color: white;
             text-decoration: none;
             border-radius: 10px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: background 0.3s;
         }
 
@@ -256,10 +271,42 @@
             background: white !important;
         }
 
+        /* Filter Buttons */
+        .filter-section {
+            padding: 30px 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid #3D7A5A;
+            background: white;
+            color: #3D7A5A;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #3D7A5A;
+            color: white;
+        }
+
         /* Jobs Section */
         .jobs-section {
-            padding: 70px 5%;
-            background: white;
+            padding: 60px 5%;
+            background: #FAF9F6;
         }
 
         .section-title {
@@ -272,34 +319,34 @@
         .section-subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-size: 1.05rem;
         }
 
         .jobs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .job-card {
-            background: #FAF9F6;
-            border-radius: 20px;
+            background: white;
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .job-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
         .job-card-image {
             position: relative;
-            height: 200px;
+            height: 180px;
             overflow: hidden;
         }
 
@@ -316,53 +363,71 @@
 
         .job-card-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 6px 14px;
+            top: 12px;
+            right: 12px;
+            padding: 5px 12px;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             background: white;
             color: #3D7A5A;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
+        .job-card-town {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: #3D7A5A;
+            color: white;
+        }
+
         .job-card-body {
-            padding: 25px;
+            padding: 20px;
         }
 
         .job-card-body h3 {
             color: #3D7A5A;
             margin-bottom: 6px;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.4;
         }
 
         .job-card-location {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
         }
 
         .job-card-body p {
             color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .job-card-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 25px;
+            padding: 10px 20px;
             background: #ff0000;
             color: white;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
+            font-size: 0.85rem;
             transition: background 0.3s, transform 0.3s;
         }
 
@@ -375,31 +440,31 @@
         .newsletter-section {
             background: linear-gradient(135deg, #3D7A5A, #2d5a42);
             color: white;
-            padding: 80px 5%;
+            padding: 70px 5%;
             text-align: center;
         }
 
         .newsletter-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 15px;
             color: #C9B896;
         }
 
         .newsletter-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 12px;
         }
 
         .newsletter-section p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             opacity: 0.9;
             max-width: 500px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
         }
 
         .newsletter-form {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
             max-width: 500px;
@@ -408,8 +473,8 @@
 
         .newsletter-form input {
             flex: 1;
-            min-width: 250px;
-            padding: 16px 25px;
+            min-width: 220px;
+            padding: 14px 22px;
             border: none;
             border-radius: 50px;
             font-size: 1rem;
@@ -417,7 +482,7 @@
         }
 
         .newsletter-form button {
-            padding: 16px 35px;
+            padding: 14px 30px;
             background: #C9B896;
             color: #2C2C2C;
             border: none;
@@ -434,88 +499,9 @@
         }
 
         .newsletter-note {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        /* Community Section */
-        .community-section {
-            padding: 70px 5%;
-            background: #FAF9F6;
-        }
-
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .post-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .post-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-        }
-
-        .post-card-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .post-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .post-card:hover .post-card-image img {
-            transform: scale(1.05);
-        }
-
-        .post-card-body {
-            padding: 22px;
-        }
-
-        .post-date {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #888;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .post-card-body h3 {
-            color: #3D7A5A;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .post-card-body p {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .post-tag {
-            display: inline-block;
-            padding: 5px 14px;
-            background: rgba(61, 122, 90, 0.1);
-            color: #3D7A5A;
-            border-radius: 20px;
+            margin-top: 15px;
             font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 12px;
+            opacity: 0.7;
         }
 
         /* Footer */
@@ -523,35 +509,36 @@
             background: #3D7A5A;
             color: white;
             text-align: center;
-            padding: 50px 5% 30px;
+            padding: 40px 5% 25px;
         }
 
         .footer img {
-            height: 65px;
-            margin-bottom: 15px;
+            height: 60px;
+            margin-bottom: 12px;
         }
 
         .footer-name {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
 
         .footer-tagline {
             opacity: 0.85;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .footer-links {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 12px;
             opacity: 0.8;
             transition: opacity 0.3s;
+            font-size: 0.9rem;
         }
 
         .footer-links a:hover {
@@ -561,13 +548,13 @@
         .footer-social {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 25px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .footer-social a {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
@@ -585,9 +572,9 @@
         }
 
         .footer-bottom {
-            padding-top: 20px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             opacity: 0.7;
         }
 
@@ -601,7 +588,7 @@
                 right: 0;
                 background: #3D7A5A;
                 flex-direction: column;
-                padding: 20px;
+                padding: 15px;
             }
 
             .nav-links.active {
@@ -613,31 +600,31 @@
             }
 
             .page-header {
-                padding: 100px 20px 50px;
+                padding: 100px 20px 45px;
             }
 
             .page-header h1 {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
 
             .stats-row {
-                gap: 15px;
+                gap: 10px;
             }
 
             .stat-badge {
-                padding: 10px 18px;
-                font-size: 0.9rem;
+                padding: 8px 15px;
+                font-size: 0.85rem;
             }
 
             #map {
-                height: 400px;
+                height: 380px;
             }
 
             .map-legend {
                 bottom: 10px;
                 left: 10px;
                 right: 10px;
-                padding: 12px 15px;
+                padding: 10px 12px;
             }
 
             .jobs-grid {
@@ -653,16 +640,21 @@
                 width: 100%;
             }
 
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
 
             .leaflet-popup-content {
-                width: 260px !important;
+                width: 250px !important;
+            }
+
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 18px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -678,7 +670,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a href="map.html">🗺️ Our Work Map</a></li>
+            <li><a href="map.html">🗺️ Map</a></li>
             <li><a href="index.html#nominate">Nominate</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -688,18 +680,13 @@
     <!-- Page Header -->
     <header class="page-header">
         <h1>🗺️ Our Work Across Surrey</h1>
-        <p>Explore every footpath and pavement we've restored. Click on any pin to see the transformation video.</p>
+        <p>17+ jobs completed. Click on any pin to watch the transformation video.</p>
         
         <div class="stats-row">
-            <div class="stat-badge">
-                <span>14</span> Jobs Completed
-            </div>
-            <div class="stat-badge">
-                <span>20+</span> Miles Coverage
-            </div>
-            <div class="stat-badge">
-                <span>3</span> Towns Served
-            </div>
+            <div class="stat-badge"><span>17</span> Jobs Done</div>
+            <div class="stat-badge"><span>4</span> Towns</div>
+            <div class="stat-badge"><span>20+</span> Miles</div>
+            <div class="stat-badge"><span>100%</span> Completed</div>
         </div>
     </header>
 
@@ -711,73 +698,285 @@
             <h4>📍 Map Legend</h4>
             <div class="legend-item">
                 <div class="legend-dot completed"></div>
-                <span>Completed Jobs</span>
+                <span>Completed Jobs (17)</span>
             </div>
             <div class="legend-item">
                 <div class="legend-dot in-progress"></div>
-                <span>In Progress</span>
+                <span>In Progress (0)</span>
             </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterJobs('all')">All Towns</button>
+            <button class="filter-btn" onclick="filterJobs('Ashtead')">Ashtead (6)</button>
+            <button class="filter-btn" onclick="filterJobs('Leatherhead')">Leatherhead (8)</button>
+            <button class="filter-btn" onclick="filterJobs('Epsom')">Epsom (1)</button>
+            <button class="filter-btn" onclick="filterJobs('Reigate')">Reigate (2)</button>
         </div>
     </section>
 
     <!-- Jobs List -->
     <section class="jobs-section">
-        <h2 class="section-title">✅ Completed Projects</h2>
-        <p class="section-subtitle">Every job documented with full transformation videos</p>
+        <h2 class="section-title">✅ All Completed Projects</h2>
+        <p class="section-subtitle">Every job documented with transformation videos</p>
         
-        <div class="jobs-grid">
+        <div class="jobs-grid" id="jobsGrid">
             
-            <!-- Job 1 -->
-            <div class="job-card">
+            <!-- JOB 1 -->
+            <div class="job-card" data-town="Ashtead">
                 <div class="job-card-image">
-                    <img src="https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg" alt="Ashtead Footpath">
+                    <img src="https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg" alt="Job 1">
+                    <span class="job-card-town">Ashtead</span>
                     <span class="job-card-badge">✓ Completed</span>
                 </div>
                 <div class="job-card-body">
-                    <h3>🌻 Ashtead Village Public Footpath</h3>
-                    <div class="job-card-location">
-                        <i class="fas fa-map-marker-alt"></i> Ashtead, Surrey
-                    </div>
-                    <p>Complete transformation of a neglected public footpath in Ashtead Village. Cleared dangerous overgrowth blocking the path.</p>
-                    <a href="https://www.youtube.com/watch?v=5UyBhb6Xouk" target="_blank" class="job-card-btn">
-                        <i class="fab fa-youtube"></i> Watch Transformation
-                    </a>
+                    <h3>Blocked Alleyway Becomes Accessible Again</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Nov 2025</div>
+                    <p>A neglected, overgrown path is cleared and restored, reopening a safe walkway for the community.</p>
+                    <a href="https://www.youtube.com/watch?v=5UyBhb6Xouk" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
                 </div>
             </div>
 
-            <!-- Job 2 -->
-            <div class="job-card">
+            <!-- JOB 2 -->
+            <div class="job-card" data-town="Ashtead">
                 <div class="job-card-image">
-                    <img src="https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg" alt="School Pavement">
+                    <img src="https://img.youtube.com/vi/_kK-YcWDEnM/maxresdefault.jpg" alt="Job 2">
+                    <span class="job-card-town">Ashtead</span>
                     <span class="job-card-badge">✓ Completed</span>
                 </div>
                 <div class="job-card-body">
-                    <h3>🌻 Pavement on School in Ashtead</h3>
-                    <div class="job-card-location">
-                        <i class="fas fa-map-marker-alt"></i> Ashtead, Surrey
-                    </div>
-                    <p>Cleared pavement near a school where overgrowth was pushing pedestrians into traffic. Now safe for children and families.</p>
-                    <a href="https://www.youtube.com/watch?v=LktubbvPEdo" target="_blank" class="job-card-btn">
-                        <i class="fab fa-youtube"></i> Watch Transformation
-                    </a>
+                    <h3>Pavement Makeover: Clearing Oak Nuts & Overgrowth</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Nov 2025</div>
+                    <p>A community clean-up focused on restoring sidewalks and public spaces.</p>
+                    <a href="https://www.youtube.com/watch?v=_kK-YcWDEnM" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
                 </div>
             </div>
 
-            <!-- Job 3 -->
-            <div class="job-card">
+            <!-- JOB 3 -->
+            <div class="job-card" data-town="Ashtead">
                 <div class="job-card-image">
-                    <img src="https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg" alt="Leatherhead Footpath">
+                    <img src="https://img.youtube.com/vi/djWt9XqxCEo/maxresdefault.jpg" alt="Job 3">
+                    <span class="job-card-town">Ashtead</span>
                     <span class="job-card-badge">✓ Completed</span>
                 </div>
                 <div class="job-card-body">
-                    <h3>🌻 Leatherhead Village Footpath</h3>
-                    <div class="job-card-location">
-                        <i class="fas fa-map-marker-alt"></i> Leatherhead, Surrey
-                    </div>
-                    <p>Restored a dangerously neglected public footpath in Leatherhead Village. Full clean-up including vegetation clearance.</p>
-                    <a href="https://www.youtube.com/watch?v=FZtG8AQTFLE" target="_blank" class="job-card-btn">
-                        <i class="fab fa-youtube"></i> Watch Transformation
-                    </a>
+                    <h3>We Restored a Forgotten Public Path So Families Can Walk Safely</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Nov 2025</div>
+                    <p>A two-day community rescue to clear a heavily overgrown public footpath.</p>
+                    <a href="https://www.youtube.com/watch?v=djWt9XqxCEo" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 4 -->
+            <div class="job-card" data-town="Ashtead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg" alt="Job 4">
+                    <span class="job-card-town">Ashtead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Dangerous School Path Cleaned After YEARS of Neglect</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Nov 2025</div>
+                    <p>Restoring a dangerous school footpath buried under years of wet leaves, mud, and debris.</p>
+                    <a href="https://www.youtube.com/watch?v=LktubbvPEdo" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 5 -->
+            <div class="job-card" data-town="Ashtead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/sFY8_Q7k0To/maxresdefault.jpg" alt="Job 5">
+                    <span class="job-card-town">Ashtead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>We Finally Finished the School Path Cleanup</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Nov 2025</div>
+                    <p>Day two of this large fall cleanup - the neglected school path is fully restored.</p>
+                    <a href="https://www.youtube.com/watch?v=sFY8_Q7k0To" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 6 -->
+            <div class="job-card" data-town="Ashtead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/wYV6mwCKv4w/maxresdefault.jpg" alt="Job 6">
+                    <span class="job-card-town">Ashtead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Garden Disaster Transformed | We Rescued This Space</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Dec 2025</div>
+                    <p>Restoring a neglected yard with hedge trimming and thorough cleanup.</p>
+                    <a href="https://www.youtube.com/watch?v=wYV6mwCKv4w" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 7 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg" alt="Job 7">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Blocked Footpath Rescue — Satisfying Public Path Cleanup!</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Dec 2025</div>
+                    <p>A dangerous, overgrown public footpath is cleared to restore safe access for residents.</p>
+                    <a href="https://www.youtube.com/watch?v=FZtG8AQTFLE" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 8 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/ztis-iabx24/maxresdefault.jpg" alt="Job 8">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>This Pavement & Road Signs Were Covered in Moss</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Jan 2026</div>
+                    <p>Pavement and road sign restoration removes thick moss, algae, and built-up dirt.</p>
+                    <a href="https://www.youtube.com/watch?v=ztis-iabx24" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 9 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/HfD6fzyYUQo/maxresdefault.jpg" alt="Job 9">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Helping a Friend: Overgrown Garden to Safe Space</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Jan 2026</div>
+                    <p>Helping an old friend restore an overgrown yard by trimming vegetation and clearing debris.</p>
+                    <a href="https://www.youtube.com/watch?v=HfD6fzyYUQo" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 10 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/TigTHnOkXbQ/maxresdefault.jpg" alt="Job 10">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Just Out Helping Where We Can | Community Litter Pick</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Dec 2026</div>
+                    <p>A calm community litter pick focused on caring for the local area.</p>
+                    <a href="https://www.youtube.com/watch?v=TigTHnOkXbQ" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 11 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/iuOwQ7cgOdo/maxresdefault.jpg" alt="Job 11">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>People Were Walking in Live Traffic Because of This Blocked Path</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Jan 2026</div>
+                    <p>Restoring a blocked, overgrown pavement to improve public safety and pedestrian access.</p>
+                    <a href="https://www.youtube.com/watch?v=iuOwQ7cgOdo" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 12 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/oYgo2RXjVDc/maxresdefault.jpg" alt="Job 12">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>The Worst Section of This Blocked Pavement</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Jan 2026</div>
+                    <p>Part 2: Completing the restoration of an overgrown pavement.</p>
+                    <a href="https://www.youtube.com/watch?v=oYgo2RXjVDc" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 13 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/kpTCCmeRgv0/maxresdefault.jpg" alt="Job 13">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>This Sealed-Off Alley Is Passable Now #AccessRestored</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Feb 2026</div>
+                    <p>A blocked alley is cleared of overgrowth and debris to restore safe passage.</p>
+                    <a href="https://www.youtube.com/watch?v=kpTCCmeRgv0" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 14 -->
+            <div class="job-card" data-town="Leatherhead">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/2GFrhRwmkNQ/maxresdefault.jpg" alt="Job 14">
+                    <span class="job-card-town">Leatherhead</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Restoring Forgotten Road Signs | Safety Gets Neglected</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Feb 2026</div>
+                    <p>Restoring neglected road signs, cleaning moss and dirt to improve visibility.</p>
+                    <a href="https://www.youtube.com/watch?v=2GFrhRwmkNQ" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 15 -->
+            <div class="job-card" data-town="Epsom">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/D4WQ5Wc_Vsg/maxresdefault.jpg" alt="Job 15">
+                    <span class="job-card-town">Epsom</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>Sharp Corner + Overgrown Hedge = DANGEROUS Sidewalk</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Feb 2026</div>
+                    <p>Clearing an overgrown hedge that had narrowed a busy pavement.</p>
+                    <a href="https://www.youtube.com/watch?v=D4WQ5Wc_Vsg" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 16 -->
+            <div class="job-card" data-town="Reigate">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/yPss5A08gKU/maxresdefault.jpg" alt="Job 16">
+                    <span class="job-card-town">Reigate</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>We Fixed This Dangerous Walking Path Just in Time</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Feb 2026</div>
+                    <p>A heavily overgrown pavement is cleared of encroaching hedges and weeds.</p>
+                    <a href="https://www.youtube.com/watch?v=yPss5A08gKU" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
+                </div>
+            </div>
+
+            <!-- JOB 17 -->
+            <div class="job-card" data-town="Reigate">
+                <div class="job-card-image">
+                    <img src="https://img.youtube.com/vi/N-j-6kPOaFk/maxresdefault.jpg" alt="Job 17">
+                    <span class="job-card-town">Reigate</span>
+                    <span class="job-card-badge">✓ Completed</span>
+                </div>
+                <div class="job-card-body">
+                    <h3>This Corner Was A Disaster Waiting To Happen</h3>
+                    <div class="job-card-location"><i class="fas fa-calendar"></i> Mar 2026</div>
+                    <p>A pavement buried under years of overgrowth is cleared on a dangerous blind curve.</p>
+                    <a href="https://www.youtube.com/watch?v=N-j-6kPOaFk" target="_blank" class="job-card-btn"><i class="fab fa-youtube"></i> Watch</a>
                 </div>
             </div>
 
@@ -790,68 +989,14 @@
             <i class="fas fa-envelope-open-text"></i>
         </div>
         <h2>📬 Stay Updated</h2>
-        <p>Join our newsletter to receive updates on new projects, transformations, and community news.</p>
+        <p>Join our newsletter for updates on new projects and transformations.</p>
         
         <form class="newsletter-form" action="https://formspree.io/f/mgonyaao" method="POST">
             <input type="email" name="email" placeholder="Enter your email address" required>
             <button type="submit">Subscribe</button>
         </form>
         
-        <p class="newsletter-note">
-            <i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.
-        </p>
-    </section>
-
-    <!-- Community Posts -->
-    <section class="community-section">
-        <h2 class="section-title">📢 Community Updates</h2>
-        <p class="section-subtitle">Latest news and highlights from our work across Surrey</p>
-        
-        <div class="posts-grid">
-            
-            <div class="post-card">
-                <div class="post-card-image">
-                    <img src="https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg" alt="Update">
-                </div>
-                <div class="post-card-body">
-                    <div class="post-date">
-                        <i class="fas fa-calendar"></i> January 2025
-                    </div>
-                    <h3>Ashtead Transformation Complete!</h3>
-                    <p>What was once impassable is now a safe walkway for families and residents.</p>
-                    <span class="post-tag">✓ Completed</span>
-                </div>
-            </div>
-
-            <div class="post-card">
-                <div class="post-card-image">
-                    <img src="https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg" alt="Update">
-                </div>
-                <div class="post-card-body">
-                    <div class="post-date">
-                        <i class="fas fa-calendar"></i> December 2024
-                    </div>
-                    <h3>Making School Routes Safer</h3>
-                    <p>Children and families can now walk safely to school without being pushed into traffic.</p>
-                    <span class="post-tag">Child Safety</span>
-                </div>
-            </div>
-
-            <div class="post-card">
-                <div class="post-card-image">
-                    <img src="https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg" alt="Update">
-                </div>
-                <div class="post-card-body">
-                    <div class="post-date">
-                        <i class="fas fa-calendar"></i> November 2024
-                    </div>
-                    <h3>Leatherhead Community Says Thanks</h3>
-                    <p>Local residents express gratitude for their restored daily walking route.</p>
-                    <span class="post-tag">Community</span>
-                </div>
-            </div>
-
-        </div>
+        <p class="newsletter-note"><i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.</p>
     </section>
 
     <!-- Footer -->
@@ -884,8 +1029,8 @@
     <!-- Map JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Create the map centered on your work area
-        var map = L.map('map').setView([51.3070, -0.3050], 13);
+        // Create the map
+        var map = L.map('map').setView([51.29, -0.26], 11);
 
         // Add map tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -895,66 +1040,214 @@
         // Custom GREEN icon for completed jobs
         var completedIcon = L.divIcon({
             className: 'custom-marker-container',
-            html: '<div style="background: #3D7A5A; width: 32px; height: 32px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);"><i class="fas fa-check"></i></div>',
-            iconSize: [32, 32],
-            iconAnchor: [16, 16],
-            popupAnchor: [0, -20]
+            html: '<div style="background: #3D7A5A; width: 28px; height: 28px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.3);"><i class="fas fa-check"></i></div>',
+            iconSize: [28, 28],
+            iconAnchor: [14, 14],
+            popupAnchor: [0, -18]
         });
 
-        // Custom YELLOW icon for in-progress jobs
-        var inProgressIcon = L.divIcon({
-            className: 'custom-marker-container',
-            html: '<div style="background: #C9B896; width: 32px; height: 32px; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; color: #2C2C2C; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);"><i class="fas fa-clock"></i></div>',
-            iconSize: [32, 32],
-            iconAnchor: [16, 16],
-            popupAnchor: [0, -20]
-        });
-
-        // Job locations - YOUR EXACT COORDINATES
+        // ALL 17 JOBS WITH EXACT COORDINATES
         var jobs = [
+            // JOB 1 - Ashtead Village
             {
                 lat: 51.3103,
-                lng: -0.2963,
-                title: "Ashtead Village Public Footpath",
-                description: "Complete transformation of a neglected public footpath. Cleared dangerous overgrowth blocking the path.",
+                lng: -0.2962,
+                title: "Blocked Alleyway Becomes Accessible Again",
+                location: "Ashtead Village",
+                description: "A neglected, overgrown path is cleared and restored, reopening a safe walkway for the community.",
                 status: "completed",
                 videoId: "5UyBhb6Xouk",
                 videoUrl: "https://www.youtube.com/watch?v=5UyBhb6Xouk"
             },
+            // JOB 2 - Ashtead Village
             {
                 lat: 51.3095,
                 lng: -0.2939,
-                title: "Pavement on School in Ashtead",
-                description: "Cleared pavement near a school where overgrowth was pushing pedestrians into traffic.",
+                title: "Pavement Makeover: Clearing Oak Nuts & Overgrowth",
+                location: "Ashtead Village",
+                description: "A community clean-up focused on restoring sidewalks and public spaces.",
+                status: "completed",
+                videoId: "_kK-YcWDEnM",
+                videoUrl: "https://www.youtube.com/watch?v=_kK-YcWDEnM"
+            },
+            // JOB 3 - Ashtead Village
+            {
+                lat: 51.3103,
+                lng: -0.3177,
+                title: "We Restored a Forgotten Public Path",
+                location: "Ashtead Village",
+                description: "A two-day community rescue to clear a heavily overgrown public footpath.",
+                status: "completed",
+                videoId: "djWt9XqxCEo",
+                videoUrl: "https://www.youtube.com/watch?v=djWt9XqxCEo"
+            },
+            // JOB 4 - Ashtead Village
+            {
+                lat: 51.3095,
+                lng: -0.2939,
+                title: "Dangerous School Path Cleaned After YEARS of Neglect",
+                location: "Ashtead Village",
+                description: "Restoring a dangerous school footpath buried under years of wet leaves, mud, and debris.",
                 status: "completed",
                 videoId: "LktubbvPEdo",
                 videoUrl: "https://www.youtube.com/watch?v=LktubbvPEdo"
             },
+            // JOB 5 - Ashtead Village
             {
-                lat: 51.3017,
-                lng: -0.3257,
-                title: "Leatherhead Village Footpath",
-                description: "Restored a dangerously neglected public footpath in Leatherhead Village.",
+                lat: 51.3089,
+                lng: -0.2947,
+                title: "We Finally Finished the School Path Cleanup",
+                location: "Ashtead Village",
+                description: "Day two of this large fall cleanup - the neglected school path is fully restored.",
+                status: "completed",
+                videoId: "sFY8_Q7k0To",
+                videoUrl: "https://www.youtube.com/watch?v=sFY8_Q7k0To"
+            },
+            // JOB 6 - Ashtead Village
+            {
+                lat: 51.3105,
+                lng: -0.2975,
+                title: "Garden Disaster Transformed",
+                location: "Ashtead Village",
+                description: "Restoring a neglected yard with hedge trimming and thorough cleanup.",
+                status: "completed",
+                videoId: "wYV6mwCKv4w",
+                videoUrl: "https://www.youtube.com/watch?v=wYV6mwCKv4w"
+            },
+            // JOB 7 - Leatherhead Village
+            {
+                lat: 51.3018,
+                lng: -0.3258,
+                title: "Blocked Footpath Rescue — Satisfying Cleanup!",
+                location: "Leatherhead Village",
+                description: "A dangerous, overgrown public footpath is cleared to restore safe access for residents.",
                 status: "completed",
                 videoId: "FZtG8AQTFLE",
                 videoUrl: "https://www.youtube.com/watch?v=FZtG8AQTFLE"
+            },
+            // JOB 8 - Leatherhead Village
+            {
+                lat: 51.2963,
+                lng: -0.3325,
+                title: "This Pavement & Road Signs Were Covered in Moss",
+                location: "Leatherhead Village",
+                description: "Pavement and road sign restoration removes thick moss, algae, and built-up dirt.",
+                status: "completed",
+                videoId: "ztis-iabx24",
+                videoUrl: "https://www.youtube.com/watch?v=ztis-iabx24"
+            },
+            // JOB 9 - Leatherhead Village
+            {
+                lat: 51.3041,
+                lng: -0.3351,
+                title: "Helping a Friend: Overgrown Garden to Safe Space",
+                location: "Leatherhead Village",
+                description: "Helping an old friend restore an overgrown yard by trimming vegetation.",
+                status: "completed",
+                videoId: "HfD6fzyYUQo",
+                videoUrl: "https://www.youtube.com/watch?v=HfD6fzyYUQo"
+            },
+            // JOB 10 - Leatherhead Village
+            {
+                lat: 51.3088,
+                lng: -0.3208,
+                title: "Just Out Helping Where We Can | Community Litter Pick",
+                location: "Leatherhead Village",
+                description: "A calm community litter pick focused on caring for the local area.",
+                status: "completed",
+                videoId: "TigTHnOkXbQ",
+                videoUrl: "https://www.youtube.com/watch?v=TigTHnOkXbQ"
+            },
+            // JOB 11 - Leatherhead Village
+            {
+                lat: 51.3055,
+                lng: -0.3313,
+                title: "People Were Walking in Live Traffic - Blocked Path",
+                location: "Leatherhead Village",
+                description: "Restoring a blocked, overgrown pavement to improve public safety.",
+                status: "completed",
+                videoId: "iuOwQ7cgOdo",
+                videoUrl: "https://www.youtube.com/watch?v=iuOwQ7cgOdo"
+            },
+            // JOB 12 - Leatherhead Village
+            {
+                lat: 51.3051,
+                lng: -0.3311,
+                title: "The Worst Section of This Blocked Pavement",
+                location: "Leatherhead Village",
+                description: "Part 2: Completing the restoration of an overgrown pavement.",
+                status: "completed",
+                videoId: "oYgo2RXjVDc",
+                videoUrl: "https://www.youtube.com/watch?v=oYgo2RXjVDc"
+            },
+            // JOB 13 - Leatherhead Village
+            {
+                lat: 51.3041,
+                lng: -0.3329,
+                title: "This Sealed-Off Alley Is Passable Now",
+                location: "Leatherhead Village",
+                description: "A blocked alley is cleared of overgrowth and debris to restore safe passage.",
+                status: "completed",
+                videoId: "kpTCCmeRgv0",
+                videoUrl: "https://www.youtube.com/watch?v=kpTCCmeRgv0"
+            },
+            // JOB 14 - Leatherhead Village
+            {
+                lat: 51.3129,
+                lng: -0.3278,
+                title: "Restoring Forgotten Road Signs",
+                location: "Leatherhead Village",
+                description: "Restoring neglected road signs, cleaning moss and dirt to improve visibility.",
+                status: "completed",
+                videoId: "2GFrhRwmkNQ",
+                videoUrl: "https://www.youtube.com/watch?v=2GFrhRwmkNQ"
+            },
+            // JOB 15 - Epsom
+            {
+                lat: 51.3414,
+                lng: -0.2603,
+                title: "Sharp Corner + Overgrown Hedge = DANGEROUS Sidewalk",
+                location: "Epsom",
+                description: "Clearing an overgrown hedge that had narrowed a busy pavement.",
+                status: "completed",
+                videoId: "D4WQ5Wc_Vsg",
+                videoUrl: "https://www.youtube.com/watch?v=D4WQ5Wc_Vsg"
+            },
+            // JOB 16 - Reigate
+            {
+                lat: 51.2261,
+                lng: -0.1960,
+                title: "We Fixed This Dangerous Walking Path Just in Time",
+                location: "Reigate",
+                description: "A heavily overgrown pavement is cleared of encroaching hedges and weeds.",
+                status: "completed",
+                videoId: "yPss5A08gKU",
+                videoUrl: "https://www.youtube.com/watch?v=yPss5A08gKU"
+            },
+            // JOB 17 - Reigate
+            {
+                lat: 51.2443,
+                lng: -0.1789,
+                title: "This Corner Was A Disaster Waiting To Happen",
+                location: "Reigate",
+                description: "A pavement buried under years of overgrowth is cleared on a dangerous blind curve.",
+                status: "completed",
+                videoId: "N-j-6kPOaFk",
+                videoUrl: "https://www.youtube.com/watch?v=N-j-6kPOaFk"
             }
         ];
 
         // Add markers to map
         jobs.forEach(function(job) {
-            // Choose icon based on status
-            var icon = job.status === 'completed' ? completedIcon : inProgressIcon;
-            
-            // Status text and class
+            var icon = job.status === 'completed' ? completedIcon : completedIcon;
             var statusText = job.status === 'completed' ? '✓ Completed' : '⏳ In Progress';
             var statusClass = job.status === 'completed' ? 'completed' : 'in-progress';
             
-            // Create popup with thumbnail
             var popupContent = 
                 '<img src="https://img.youtube.com/vi/' + job.videoId + '/maxresdefault.jpg" alt="' + job.title + '" class="popup-thumbnail">' +
                 '<div class="popup-body">' +
                     '<div class="popup-title">' + job.title + '</div>' +
+                    '<div class="popup-location"><i class="fas fa-map-marker-alt"></i> ' + job.location + '</div>' +
                     '<span class="popup-status ' + statusClass + '">' + statusText + '</span>' +
                     '<div class="popup-description">' + job.description + '</div>' +
                     '<a href="' + job.videoUrl + '" target="_blank" class="popup-btn">' +
@@ -962,11 +1255,29 @@
                     '</a>' +
                 '</div>';
             
-            // Add marker
             L.marker([job.lat, job.lng], {icon: icon})
                 .addTo(map)
-                .bindPopup(popupContent, {maxWidth: 320});
+                .bindPopup(popupContent, {maxWidth: 300});
         });
+
+        // Filter function for job cards
+        function filterJobs(town) {
+            var cards = document.querySelectorAll('.job-card');
+            var buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            cards.forEach(function(card) {
+                if (town === 'all' || card.dataset.town === town) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
         // Mobile menu toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
