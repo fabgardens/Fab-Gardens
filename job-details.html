@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details & Risk Assessment | Fab Gardens</title>
+    <meta name="description" content="Full job details, risk assessment, and transformation video from Fab Gardens community project.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4920503378652952"
+         crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background: #FAF9F6;
+            color: #2C2C2C;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #3D7A5A;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            color: #3D7A5A;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #C9B896;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #3D7A5A, #2d5a42);
+            color: white;
+            text-align: center;
+            padding: 120px 20px 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+        }
+
+        .job-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .meta-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Content */
+        .content {
+            max-width: 900px;
+            margin: -30px auto 60px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        h2 {
+            color: #3D7A5A;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #2C2C2C;
+            font-size: 1.2rem;
+            margin: 25px 0 12px;
+        }
+
+        p {
+            color: #5a5a5a;
+            margin-bottom: 15px;
+        }
+
+        /* Risk Table */
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .risk-table th,
+        .risk-table td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .risk-table th {
+            background: #FAF9F6;
+            color: #3D7A5A;
+            font-weight: 600;
+        }
+
+        .risk-table tr:hover {
+            background: #FAF9F6;
+        }
+
+        .risk-level {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .risk-level.high { background: #ffebee; color: #c62828; }
+        .risk-level.medium { background: #fff3e0; color: #ef6c00; }
+        .risk-level.low { background: #e8f5e9; color: #2e7d32; }
+        .risk-level.controlled { background: #e3f2fd; color: #1565c0; }
+
+        /* Safety Box */
+        .safety-box {
+            background: linear-gradient(135deg, rgba(61, 122, 90, 0.1), rgba(61, 122, 90, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #3D7A5A;
+            margin: 25px 0;
+        }
+
+        .safety-box h3 {
+            color: #3D7A5A;
+            margin-top: 0;
+        }
+
+        .safety-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* PPE List */
+        .ppe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .ppe-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: #FAF9F6;
+            border-radius: 10px;
+        }
+
+        .ppe-item i {
+            color: #3D7A5A;
+            font-size: 1.2rem;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, #3D7A5A, #2d5a42);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            color: white;
+            justify-content: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-btn.primary {
+            background: white;
+            color: #3D7A5A;
+        }
+
+        .cta-btn.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #3D7A5A;
+            color: white;
+            text-align: center;
+            padding: 30px 5%;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            opacity: 0.8;
+        }
+
+        .footer a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .card {
+                padding: 25px 20px;
+            }
+
+            .risk-table {
+                font-size: 0.8rem;
+            }
+
+            .risk-table th,
+            .risk-table td {
+                padding: 10px 8px;
+            }
+
+            .ppe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Fab Gardens">
+            <span>Fab Gardens</span>
+        </a>
+        <a href="map.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Map
+        </a>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 id="jobTitle">Loading Job Details...</h1>
+        <p id="jobLocation">Location loading...</p>
+        <div class="job-meta">
+            <span class="meta-badge" id="jobDate"><i class="fas fa-calendar"></i> Date</span>
+            <span class="meta-badge"><i class="fas fa-check-circle"></i> Completed</span>
+            <span class="meta-badge" id="jobTown"><i class="fas fa-map-marker-alt"></i> Town</span>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- Video Card -->
+        <div class="card">
+            <h2><i class="fab fa-youtube"></i> Transformation Video</h2>
+            <div class="video-container">
+                <iframe id="videoFrame" src="" title="Transformation Video" allowfullscreen></iframe>
+            </div>
+            
+            <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+            <p id="jobDescription">Loading description...</p>
+        </div>
+
+        <!-- Risk Assessment Card -->
+        <div class="card">
+            <h2><i class="fas fa-shield-alt"></i> Risk Assessment</h2>
+            <p>Before undertaking any work, a thorough risk assessment is conducted to ensure safety throughout the project.</p>
+            
+            <h3>Identified Hazards</h3>
+            <table class="risk-table">
+                <thead>
+                    <tr>
+                        <th>Hazard</th>
+                        <th>Risk Level</th>
+                        <th>Control Measures</th>
+                        <th>Residual Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sharp tools (secateurs, loppers)</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>PPE gloves, proper handling, secure storage</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hidden debris/sharp objects</td>
+                        <td><span class="risk-level high">High</span></td>
+                        <td>Protective footwear, careful clearance, visual inspection</td>
+                        <td><span class="risk-level controlled">Controlled</span></td>
+                    </tr>
+                    <tr>
+                        <td>Thorny vegetation (brambles)</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>Long sleeves, thick gloves, eye protection</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Uneven ground/trip hazards</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>Sturdy boots, careful movement, clear as you go</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td>Passing traffic (adjacent road)</td>
+                        <td><span class="risk-level medium">Medium</span></td>
+                        <td>High-vis clothing, awareness, work away from road edge</td>
+                        <td><span class="risk-level controlled">Controlled</span></td>
+                    </tr>
+                    <tr>
+                        <td>Manual handling strain</td>
+                        <td><span class="risk-level low">Low</span></td>
+                        <td>Regular breaks, proper lifting technique</td>
+                        <td><span class="risk-level low">Low</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>PPE Used</h3>
+            <div class="ppe-grid">
+                <div class="ppe-item"><i class="fas fa-mitten"></i> Safety Gloves</div>
+                <div class="ppe-item"><i class="fas fa-shoe-prints"></i> Safety Boots</div>
+                <div class="ppe-item"><i class="fas fa-vest"></i> High-Vis Vest</div>
+                <div class="ppe-item"><i class="fas fa-glasses"></i> Safety Glasses</div>
+                <div class="ppe-item"><i class="fas fa-tshirt"></i> Long Sleeves</div>
+                <div class="ppe-item"><i class="fas fa-first-aid"></i> First Aid Kit</div>
+            </div>
+
+            <h3>Emergency Procedures</h3>
+            <p>First aid kit on site. Emergency contact numbers recorded. Nearest A&E: Epsom Hospital (15 minutes). Mobile phone fully charged for emergencies.</p>
+        </div>
+
+        <!-- Safety Outcome Card -->
+        <div class="card">
+            <div class="safety-box">
+                <h3><i class="fas fa-check-circle"></i> Safety Outcome</h3>
+                <p>This area is now fully accessible and safe for all pedestrians. Families with pushchairs, elderly residents, and dog walkers can now use this route safely. The community has regained a vital walking connection.</p>
+            </div>
+
+            <h2><i class="fas fa-users"></i> Community Impact</h2>
+            <p>This restoration directly benefits:</p>
+            <ul style="margin-left: 25px; color: #5a5a5a;">
+                <li>Local residents using the footpath daily</li>
+                <li>Families with young children and pushchairs</li>
+                <li>Elderly residents who rely on safe walking routes</li>
+                <li>Dog walkers in the area</li>
+                <li>Anyone with mobility challenges who needs clear pathways</li>
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2><i class="fas fa-hand-holding-heart"></i> Know Another Area That Needs Help?</h2>
+            <p>We rely on community nominations to find neglected paths across Surrey.</p>
+            <div class="cta-buttons">
+                <a href="index.html#nominate" class="cta-btn primary">
+                    <i class="fas fa-clipboard-list"></i> Nominate an Area
+                </a>
+                <a href="https://www.youtube.com/@fabgardens" target="_blank" class="cta-btn secondary">
+                    <i class="fab fa-youtube"></i> More Videos
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Fab Gardens Community Project</p>
+        <p style="margin-top: 10px;">
+            <a href="index.html">Home</a>
+            <a href="map.html">Our Work</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript to Load Job Data -->
+    <script>
+        // Job database
+        var jobsDatabase = {
+            "5UyBhb6Xouk": {
+                title: "Blocked Alleyway Becomes Accessible Again",
+                location: "Ashtead Village, Surrey",
+                town: "Ashtead",
+                date: "November 2025",
+                description: "A neglected, overgrown path is cleared and restored, revealing a satisfying before-and-after transformation. The work removes years of weeds, mud, and tangled branches, reopening a safe walkway for the community. The video highlights how simple acts of care and effort can restore access and improve shared spaces."
+            },
+            "_kK-YcWDEnM": {
+                title: "Pavement Makeover: Clearing Oak Nuts & Overgrowth",
+                location: "Ashtead Village, Surrey",
+                town: "Ashtead",
+                date: "November 2025",
+                description: "A community clean-up focused on restoring sidewalks and public spaces. Autumn leaves and trash are cleared using efficient methods, including lawn mower leaf cleanup, helping make the area cleaner and safer for local residents."
+            },
+            "djWt9XqxCEo": {
+                title: "We Restored a Forgotten Public Path",
+                location: "Ashtead Village, Surrey",
+                town: "Ashtead",
+                date: "November 2025",
+                description: "Fabio and Bryan take on a two-day community rescue to clear a heavily overgrown public footpath that had become unsafe for residents. After cutting back dense hedges and removing debris, the path is restored to a safe, accessible walkway."
+            },
+            "LktubbvPEdo": {
+                title: "Dangerous School Path Cleaned After YEARS of Neglect",
+                location: "Ashtead Village, Surrey",
+                town: "Ashtead",
+                date: "November 2025",
+                description: "Fabio begins restoring a dangerous school footpath buried under years of wet leaves, mud, and debris. The cleanup removes slip hazards and reopens a safer walkway for children, parents with buggies, joggers, and dog walkers."
+            },
+            "sFY8_Q7k0To": {
+                title: "We Finally Finished the School Path Cleanup",
+                location: "Ashtead Village, Surrey",
+                town: "Ashtead",
+                date: "November 2025",
+                description: "On day two of this large fall cleanup, the team finishes clearing heavy autumn leaves from the sidewalk and street. With deep scraping, edging, and thorough clearing, the neglected school path is fully restored."
+            },
+            "wYV6mwCKv4w": {
+                title: "Garden Disaster Transformed",
+                location: "Ashtead Village, Surrey",
+                town: "Ashtead",
+                date: "December 2025",
+                description: "Fabio restores a neglected yard with hedge trimming and a thorough cleanup, bringing beauty and order back to the space. The project was done to help another gardener who was unable to support his client."
+            },
+            "FZtG8AQTFLE": {
+                title: "Blocked Footpath Rescue — Satisfying Cleanup!",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "December 2025",
+                description: "A dangerous, overgrown public footpath is cleared of vegetation, litter, and debris to restore safe access for residents. The cleanup includes wildlife safety checks, heavy overgrowth removal, and a satisfying before-and-after transformation."
+            },
+            "ztis-iabx24": {
+                title: "This Pavement & Road Signs Were Covered in Moss",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "January 2026",
+                description: "A pavement and road sign restoration removes thick moss, algae, and built-up dirt that had made the area slippery and the signs difficult to read. The cleanup restores safety and visibility while transforming a neglected public space."
+            },
+            "HfD6fzyYUQo": {
+                title: "Helping a Friend: Overgrown Garden to Safe Space",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "January 2026",
+                description: "Fabio helps an old friend restore an overgrown yard by trimming vegetation, clearing debris, and tidying the garden path. The cleanup improves safety and brings the space back to life."
+            },
+            "TigTHnOkXbQ": {
+                title: "Just Out Helping Where We Can | Community Litter Pick",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "December 2026",
+                description: "A calm community litter pick focused on caring for the local area. By collecting rubbish and tidying shared spaces, the video highlights how small, simple acts of volunteering can make a meaningful difference."
+            },
+            "iuOwQ7cgOdo": {
+                title: "People Were Walking in Live Traffic - Blocked Path",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "January 2026",
+                description: "The team begins restoring a blocked, overgrown pavement to improve public safety and pedestrian access. Through vegetation clearance, debris removal, and litter cleanup, Part 1 demonstrates the impact of consistent effort."
+            },
+            "oYgo2RXjVDc": {
+                title: "The Worst Section of This Blocked Pavement",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "January 2026",
+                description: "In Part 2, the team completes the restoration of an overgrown pavement, clearing thick vegetation and debris to make the footpath safe for pedestrians again."
+            },
+            "kpTCCmeRgv0": {
+                title: "This Sealed-Off Alley Is Passable Now",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "February 2026",
+                description: "A blocked alley is cleared of overgrowth and debris to restore safe, accessible passage for the community. The cleanup emphasizes safety, dignity, and the importance of caring for often-overlooked shared spaces."
+            },
+            "2GFrhRwmkNQ": {
+                title: "Restoring Forgotten Road Signs",
+                location: "Leatherhead Village, Surrey",
+                town: "Leatherhead",
+                date: "February 2026",
+                description: "Fab Gardens restores neglected road signs, cleaning moss and dirt to improve visibility and support road safety. The video highlights how quiet, proactive action can protect pedestrians and guide drivers."
+            },
+            "D4WQ5Wc_Vsg": {
+                title: "Sharp Corner + Overgrown Hedge = DANGEROUS Sidewalk",
+                location: "Epsom, Surrey",
+                town: "Epsom",
+                date: "February 2026",
+                description: "Fab Gardens clears an overgrown hedge that had narrowed a busy pavement, restoring safe walking space and improving visibility for pedestrians."
+            },
+            "yPss5A08gKU": {
+                title: "We Fixed This Dangerous Walking Path Just in Time",
+                location: "Reigate, Surrey",
+                town: "Reigate",
+                date: "February 2026",
+                description: "A heavily overgrown pavement is cleared of encroaching hedges and weeds, restoring safe access for the community. The before-and-after transformation shows the impact of consistent hedge trimming."
+            },
+            "N-j-6kPOaFk": {
+                title: "This Corner Was A Disaster Waiting To Happen",
+                location: "Reigate, Surrey",
+                town: "Reigate",
+                date: "March 2026",
+                description: "A pavement buried under years of overgrowth is cleared, restoring safe access for pedestrians on a dangerous blind curve. Hedges, ivy, brambles, and soil are removed to make the path visible again."
+            }
+        };
+
+        // Get job ID from URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var jobId = urlParams.get('id');
+
+        // Load job data
+        if (jobId && jobsDatabase[jobId]) {
+            var job = jobsDatabase[jobId];
+            
+            document.getElementById('jobTitle').textContent = job.title;
+            document.getElementById('jobLocation').textContent = job.location;
+            document.getElementById('jobDate').innerHTML = '<i class="fas fa-calendar"></i> ' + job.date;
+            document.getElementById('jobTown').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + job.town;
+            document.getElementById('jobDescription').textContent = job.description;
+            document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + jobId;
+            document.title = job.title + ' | Fab Gardens';
+        } else {
+            document.getElementById('jobTitle').textContent = 'Job Not Found';
+            document.getElementById('jobDescription').textContent = 'Sorry, this job could not be found. Please return to the map.';
+        }
+    </script>
+
+</body>
