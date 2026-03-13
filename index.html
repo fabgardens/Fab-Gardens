@@ -1008,7 +1008,182 @@
     .youtube-link.secondary:hover {
         box-shadow: 0 15px 35px rgba(61, 122, 90, 0.3);
     }
+/* NEW: Jobs List Layout */
+.jobs-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
+.job-list-item {
+    display: flex;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.job-list-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.job-list-thumb {
+    width: 280px;
+    min-width: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.job-list-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.job-list-item:hover .job-list-thumb img {
+    transform: scale(1.05);
+}
+
+.job-list-thumb .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 0, 0, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.job-list-item:hover .play-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.job-list-content {
+    flex: 1;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.job-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 15px;
+}
+
+.job-list-content h3 {
+    color: var(--garden-green);
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.job-list-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.job-list-town {
+    background: var(--garden-green);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.job-list-date {
+    color: var(--light-text);
+    font-size: 0.8rem;
+}
+
+.job-list-desc {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.job-list-outcome {
+    background: rgba(61, 122, 90, 0.1);
+    color: var(--garden-green);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.job-list-outcome i {
+    color: var(--garden-green);
+}
+
+.job-list-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.3s;
+    align-self: flex-start;
+}
+
+.job-list-btn:hover {
+    background: #cc0000;
+}
+
+/* Mobile Responsive for List */
+@media (max-width: 768px) {
+    .job-list-item {
+        flex-direction: column;
+    }
+    
+    .job-list-thumb {
+        width: 100%;
+        height: 180px;
+    }
+    
+    .job-list-content {
+        padding: 15px;
+    }
+    
+    .job-list-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .job-list-content h3 {
+        font-size: 1rem;
+    }
+}
     .jobs-grid {
         max-width: 1200px;
         margin: 0 auto;
@@ -2009,17 +2184,16 @@
         </div>
     </section>
 
-<!-- COMPLETED JOBS SECTION -->
+<!-- COMPLETED JOBS SECTION - LIST LAYOUT -->
 <section class="completed" id="completed">
     <h2 class="section-title">✅ Completed Jobs</h2>
-    <p class="section-subtitle">17 projects completed across Surrey. Watch all transformations on our YouTube channels.</p>
+    <p class="section-subtitle">17 projects completed across Surrey. Click any thumbnail to watch the transformation.</p>
     
     <div class="completed-intro">
         <div class="jobs-story">
             <p>Every project featured here began as a nomination and posed a real safety issue for walkers, families, or local residents.</p>
         </div>
         
-        <p>We document every clean-up job and share the full process on YouTube. Subscribe to follow our work!</p>
         <div>
             <a href="https://www.youtube.com/@fabgardens" target="_blank" class="youtube-link">
                 <i class="fab fa-youtube"></i> Fab Gardens (Full Videos)
@@ -2030,228 +2204,330 @@
         </div>
     </div>
 
-    <div class="jobs-grid">
+    <div class="jobs-list">
 
-        <!-- JOB 1 - Ashtead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/5UyBhb6Xouk" title="Blocked Alleyway Ashtead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 1 -->
+        <a href="https://www.youtube.com/watch?v=5UyBhb6Xouk" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/5UyBhb6Xouk/maxresdefault.jpg" alt="Blocked Alleyway">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Blocked Alleyway Becomes Accessible Again</h3>
-                <p>A neglected, overgrown path is cleared and restored, reopening a safe walkway for the community.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Restored safe walking access for residents.</span></div>
-                <span class="job-status status-completed">✓ Ashtead - Nov 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Blocked Alleyway Becomes Accessible Again</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Ashtead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Nov 2025</span>
+                </div>
+                <p class="job-list-desc">A neglected, overgrown path is cleared and restored, reopening a safe walkway for the community.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Restored safe walking access for residents</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 2 - Ashtead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/_kK-YcWDEnM" title="Pavement Makeover Ashtead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 2 -->
+        <a href="https://www.youtube.com/watch?v=_kK-YcWDEnM" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/_kK-YcWDEnM/maxresdefault.jpg" alt="Pavement Makeover">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Pavement Makeover: Clearing Oak Nuts</h3>
-                <p>Community clean-up focused on restoring sidewalks and public spaces.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Safer, cleaner walkways for residents.</span></div>
-                <span class="job-status status-completed">✓ Ashtead - Nov 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Pavement Makeover: Clearing Oak Nuts & Overgrowth</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Ashtead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Nov 2025</span>
+                </div>
+                <p class="job-list-desc">Community clean-up focused on restoring sidewalks and public spaces.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Safer, cleaner walkways for residents</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 3 - Ashtead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/djWt9XqxCEo" title="Forgotten Public Path Ashtead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 3 -->
+        <a href="https://www.youtube.com/watch?v=djWt9XqxCEo" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/djWt9XqxCEo/maxresdefault.jpg" alt="Forgotten Path">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Restored a Forgotten Public Path</h3>
-                <p>Two-day rescue clearing heavily overgrown public footpath.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Families can now walk safely again.</span></div>
-                <span class="job-status status-completed">✓ Ashtead - Nov 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Restored a Forgotten Public Path So Families Can Walk Safely</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Ashtead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Nov 2025</span>
+                </div>
+                <p class="job-list-desc">Two-day rescue clearing heavily overgrown public footpath.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Families can now walk safely again</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 4 - Ashtead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/LktubbvPEdo" title="School Path Ashtead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 4 -->
+        <a href="https://www.youtube.com/watch?v=LktubbvPEdo" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/LktubbvPEdo/maxresdefault.jpg" alt="School Path">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Dangerous School Path Cleaned</h3>
-                <p>Restoring dangerous school footpath buried under years of wet leaves, mud, and debris.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Safe walkway for children and families.</span></div>
-                <span class="job-status status-completed">✓ Ashtead - Nov 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Dangerous School Path Cleaned After YEARS of Neglect</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Ashtead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Nov 2025</span>
+                </div>
+                <p class="job-list-desc">Restoring dangerous school footpath buried under wet leaves, mud, and debris.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Safe walkway for children and families</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 5 - Ashtead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/sFY8_Q7k0To" title="School Path Finished Ashtead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 5 -->
+        <a href="https://www.youtube.com/watch?v=sFY8_Q7k0To" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/sFY8_Q7k0To/maxresdefault.jpg" alt="School Path Finished">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Finished the School Path Cleanup</h3>
-                <p>Day two - the neglected school path is fully restored with deep scraping and edging.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Clean, safe walkway brought back to life.</span></div>
-                <span class="job-status status-completed">✓ Ashtead - Nov 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 We Finally Finished the School Path Cleanup</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Ashtead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Nov 2025</span>
+                </div>
+                <p class="job-list-desc">Day two - neglected school path fully restored with deep scraping and edging.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Clean, safe walkway brought back to life</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 6 - Ashtead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/wYV6mwCKv4w" title="Garden Disaster Ashtead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 6 -->
+        <a href="https://www.youtube.com/watch?v=wYV6mwCKv4w" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/wYV6mwCKv4w/maxresdefault.jpg" alt="Garden Disaster">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Garden Disaster Transformed</h3>
-                <p>Restoring neglected yard with hedge trimming - helping another gardener support his client.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Beauty and order restored to the space.</span></div>
-                <span class="job-status status-completed">✓ Ashtead - Dec 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Garden Disaster Transformed | We Rescued This Space</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Ashtead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Dec 2025</span>
+                </div>
+                <p class="job-list-desc">Restoring neglected yard with hedge trimming - helping another gardener support his client.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Beauty and order restored to the space</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 7 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/FZtG8AQTFLE" title="Blocked Footpath Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 7 -->
+        <a href="https://www.youtube.com/watch?v=FZtG8AQTFLE" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/FZtG8AQTFLE/maxresdefault.jpg" alt="Blocked Footpath">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Blocked Footpath Rescue</h3>
-                <p>Dangerous, overgrown public footpath cleared of vegetation, litter, and debris.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Safe access restored for residents.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Dec 2025</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Blocked Footpath Rescue — Satisfying Public Path Cleanup!</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Dec 2025</span>
+                </div>
+                <p class="job-list-desc">Dangerous, overgrown public footpath cleared of vegetation, litter, and debris.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Safe access restored for residents</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 8 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/ztis-iabx24" title="Moss Cleaning Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 8 -->
+        <a href="https://www.youtube.com/watch?v=ztis-iabx24" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/ztis-iabx24/maxresdefault.jpg" alt="Moss Cleaning">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Pavement & Road Signs Covered in Moss</h3>
-                <p>Restoration removes thick moss, algae, and built-up dirt. Signs now visible again.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Safety and visibility restored.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Jan 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 This Pavement & Road Signs Were Covered in Moss</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Jan 2026</span>
+                </div>
+                <p class="job-list-desc">Restoration removes thick moss, algae, and built-up dirt. Signs now visible again.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Safety and visibility restored</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 9 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/HfD6fzyYUQo" title="Helping Friend Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 9 -->
+        <a href="https://www.youtube.com/watch?v=HfD6fzyYUQo" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/HfD6fzyYUQo/maxresdefault.jpg" alt="Helping Friend">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Helping a Friend: Overgrown Garden</h3>
-                <p>Helping an old friend restore overgrown yard by trimming vegetation and clearing debris.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Space brought back to life.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Jan 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Helping a Friend: Overgrown Garden to Safe Space</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Jan 2026</span>
+                </div>
+                <p class="job-list-desc">Helping an old friend restore overgrown yard by trimming vegetation and clearing debris.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Space brought back to life</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 10 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/TigTHnOkXbQ" title="Community Litter Pick Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 10 -->
+        <a href="https://www.youtube.com/watch?v=TigTHnOkXbQ" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/TigTHnOkXbQ/maxresdefault.jpg" alt="Litter Pick">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Community Litter Pick</h3>
-                <p>Calm community litter pick focused on caring for the local area.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Small acts make meaningful difference.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Dec 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Just Out Helping Where We Can | Community Litter Pick</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Dec 2026</span>
+                </div>
+                <p class="job-list-desc">Calm community litter pick focused on caring for the local area.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Small acts make meaningful difference</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 11 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/iuOwQ7cgOdo" title="Blocked Pavement Part 1 Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 11 -->
+        <a href="https://www.youtube.com/watch?v=iuOwQ7cgOdo" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/iuOwQ7cgOdo/maxresdefault.jpg" alt="Blocked Pavement">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 People Walking in Traffic - Blocked Path</h3>
-                <p>Restoring blocked, overgrown pavement to improve public safety and pedestrian access.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Pedestrians no longer forced into road.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Jan 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 People Were Walking in Live Traffic - Blocked Path Part 1</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Jan 2026</span>
+                </div>
+                <p class="job-list-desc">Restoring blocked, overgrown pavement to improve public safety and pedestrian access.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Pedestrians no longer forced into road</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 12 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/oYgo2RXjVDc" title="Blocked Pavement Part 2 Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 12 -->
+        <a href="https://www.youtube.com/watch?v=oYgo2RXjVDc" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/oYgo2RXjVDc/maxresdefault.jpg" alt="Worst Section">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Worst Section of Blocked Pavement</h3>
-                <p>Part 2: Completing restoration of overgrown pavement - thick vegetation and debris removed.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Footpath safe for pedestrians again.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Jan 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 The Worst Section of This Blocked Pavement - Part 2</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Jan 2026</span>
+                </div>
+                <p class="job-list-desc">Completing restoration of overgrown pavement - thick vegetation and debris removed.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Footpath safe for pedestrians again</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 13 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/kpTCCmeRgv0" title="Sealed Off Alley Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 13 -->
+        <a href="https://www.youtube.com/watch?v=kpTCCmeRgv0" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/kpTCCmeRgv0/maxresdefault.jpg" alt="Sealed Alley">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Sealed-Off Alley Is Passable Now</h3>
-                <p>Blocked alley cleared of overgrowth and debris to restore safe passage.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Access restored for community.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Feb 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 This Sealed-Off Alley Is Passable Now</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Feb 2026</span>
+                </div>
+                <p class="job-list-desc">Blocked alley cleared of overgrowth and debris to restore safe passage.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Access restored for community</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 14 - Leatherhead -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/2GFrhRwmkNQ" title="Road Signs Leatherhead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 14 -->
+        <a href="https://www.youtube.com/watch?v=2GFrhRwmkNQ" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/2GFrhRwmkNQ/maxresdefault.jpg" alt="Road Signs">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Restoring Forgotten Road Signs</h3>
-                <p>Neglected road signs cleaned - moss and dirt removed to improve visibility and safety.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Signs now visible to protect pedestrians.</span></div>
-                <span class="job-status status-completed">✓ Leatherhead - Feb 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Restoring Forgotten Road Signs | Safety Neglected</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Leatherhead</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Feb 2026</span>
+                </div>
+                <p class="job-list-desc">Neglected road signs cleaned - moss and dirt removed to improve visibility.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Signs now visible to protect pedestrians</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 15 - Epsom -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/D4WQ5Wc_Vsg" title="Sharp Corner Epsom" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 15 -->
+        <a href="https://www.youtube.com/watch?v=D4WQ5Wc_Vsg" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/D4WQ5Wc_Vsg/maxresdefault.jpg" alt="Sharp Corner">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Sharp Corner + Overgrown Hedge</h3>
-                <p>Overgrown hedge that had narrowed busy pavement - safe walking space restored.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Pedestrians can walk safely again.</span></div>
-                <span class="job-status status-completed">✓ Epsom - Feb 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 Sharp Corner + Overgrown Hedge = DANGEROUS Sidewalk</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Epsom</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Feb 2026</span>
+                </div>
+                <p class="job-list-desc">Overgrown hedge that had narrowed busy pavement - safe walking space restored.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Pedestrians can walk safely again</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 16 - Reigate -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/yPss5A08gKU" title="Dangerous Path Reigate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 16 -->
+        <a href="https://www.youtube.com/watch?v=yPss5A08gKU" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/yPss5A08gKU/maxresdefault.jpg" alt="Dangerous Path">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Fixed Dangerous Walking Path</h3>
-                <p>Heavily overgrown pavement cleared of encroaching hedges and weeds.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Safe access restored for community.</span></div>
-                <span class="job-status status-completed">✓ Reigate - Feb 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 We Fixed This Dangerous Walking Path Just in Time</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Reigate</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Feb 2026</span>
+                </div>
+                <p class="job-list-desc">Heavily overgrown pavement cleared of encroaching hedges and weeds.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Safe access restored for community</div>
             </div>
-        </div>
+        </a>
 
-        <!-- JOB 17 - Reigate -->
-        <div class="job-card">
-            <div class="job-video">
-                <iframe src="https://www.youtube.com/embed/N-j-6kPOaFk" title="Disaster Corner Reigate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- JOB 17 -->
+        <a href="https://www.youtube.com/watch?v=N-j-6kPOaFk" target="_blank" class="job-list-item">
+            <div class="job-list-thumb">
+                <img src="https://img.youtube.com/vi/N-j-6kPOaFk/maxresdefault.jpg" alt="Disaster Corner">
+                <div class="play-icon"><i class="fab fa-youtube"></i></div>
             </div>
-            <div class="job-details">
-                <h3>🌻 Corner Was Disaster Waiting to Happen</h3>
-                <p>Pavement buried under years of overgrowth cleared on dangerous blind curve.</p>
-                <div class="safety-outcome"><i class="fas fa-check-circle"></i><span>Path visible again - safety restored.</span></div>
-                <span class="job-status status-completed">✓ Reigate - Mar 2026</span>
+            <div class="job-list-content">
+                <div class="job-list-header">
+                    <h3>🌻 This Corner Was A Disaster Waiting To Happen</h3>
+                </div>
+                <div class="job-list-meta">
+                    <span class="job-list-town">Reigate</span>
+                    <span class="job-list-date"><i class="fas fa-calendar"></i> Mar 2026</span>
+                </div>
+                <p class="job-list-desc">Pavement buried under years of overgrowth cleared on dangerous blind curve.</p>
+                <div class="job-list-outcome"><i class="fas fa-check-circle"></i> Path visible again - safety restored</div>
             </div>
-        </div>
+        </a>
 
     </div>
 </section>
