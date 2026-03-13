@@ -247,22 +247,42 @@
             overflow: hidden;
         }
 
-        .popup-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 10px;
-            background: #ff0000;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
+.popup-buttons {
+    display: flex;
+    gap: 10px;
+}
 
+.popup-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.popup-btn.youtube {
+    background: #ff0000;
+    color: white;
+}
+
+.popup-btn.youtube:hover {
+    background: #cc0000;
+}
+
+.popup-btn.details {
+    background: #3D7A5A;
+    color: white;
+}
+
+.popup-btn.details:hover {
+    background: #2d5a42;
+}
         .popup-btn:hover {
             background: #cc0000;
         }
@@ -1250,10 +1270,14 @@
                     '<div class="popup-location"><i class="fas fa-map-marker-alt"></i> ' + job.location + '</div>' +
                     '<span class="popup-status ' + statusClass + '">' + statusText + '</span>' +
                     '<div class="popup-description">' + job.description + '</div>' +
-                    '<a href="' + job.videoUrl + '" target="_blank" class="popup-btn">' +
-                        '<i class="fab fa-youtube"></i> Watch Transformation' +
-                    '</a>' +
-                '</div>';
+                   '<div class="popup-buttons">' +
+    '<a href="' + job.videoUrl + '" target="_blank" class="popup-btn youtube">' +
+        '<i class="fab fa-youtube"></i> Watch' +
+    '</a>' +
+    '<a href="job-details.html?id=' + job.videoId + '" class="popup-btn details">' +
+        '<i class="fas fa-file-alt"></i> Details' +
+    '</a>' +
+'</div>' +
             
             L.marker([job.lat, job.lng], {icon: icon})
                 .addTo(map)
