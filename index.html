@@ -776,7 +776,9 @@
 
         /* BACK TO TOP */
         .back-to-top {
-            position: fixed; bottom: 30px; right: 30px;
+    position: fixed;
+    bottom: 95px;
+    right: 30px;
             width: 50px; height: 50px;
             background: var(--glass-white);
             backdrop-filter: blur(20px);
@@ -816,6 +818,48 @@
             .form-container { padding: 30px 20px; }
             .section-title { font-size: 1.8rem; }
         }
+        .whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: #128c7e;
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 65px;
+    background: #ffffff;
+    color: #2C2C2C;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+}
     </style>
 </head>
 <body>
@@ -1250,7 +1294,10 @@
             <p>Powered by kindness 🌻</p>
         </div>
     </footer>
-
+<a href="https://wa.me/447915270957?text=Hello%20Fab%20Gardens,%20I’d%20like%20to%20nominate%20an%20area%20that%20needs%20attention." target="_blank" class="whatsapp-float" aria-label="WhatsApp Fab Gardens">
+    <span class="whatsapp-tooltip">Nominate Area</span>
+    <i class="fab fa-whatsapp"></i>
+</a>
     <!-- BACK TO TOP -->
     <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
